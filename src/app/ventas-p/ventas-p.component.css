@@ -1,0 +1,18 @@
+header {
+    margin-bottom: 40px;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 16px;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  /* Resto de los estilos para el contenido del apartado de ventas */
+  
