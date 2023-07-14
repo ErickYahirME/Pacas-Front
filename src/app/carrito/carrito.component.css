@@ -1,0 +1,30 @@
+.titulo{
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    
+}
+
+.hr{
+    border: 10px;
+}
+
+.tituloCompras{
+    color: black;
+    width: fit-content;
+
+}
+
+.clearCarrito{
+    margin-left: 50px;
+    
+
+} 
+
+.updateCarrito{
+    margin-left: 950px;
+}
+
+.comprarBtn{
+    margin-left: 1200px;
+}
