@@ -6,20 +6,22 @@
             class="img-fluid" alt="Phone image">
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-          <form>
+          <form
+          [formGroup]="loginForm"
+          >
             <!-- Email input -->
             <h1>Login</h1>
             <div class="form-outline mb-4">
-              <input type="email" id="form1Example13" class="form-control form-control-lg" />
-              <label class="form-label" for="form1Example13">Correo electronico</label>
+              <input type="email" id="email" formControlName="email" class="form-control form-control-lg" />
+              <label class="form-label" for="email">Correo electronico</label>
             </div>
-  
+
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input type="password" id="form1Example23" class="form-control form-control-lg" />
-              <label class="form-label" for="form1Example23">Contraseña</label>
+              <input type="password" formControlName="password" id="password" class="form-control form-control-lg" />
+              <label class="form-label" for="password">Contraseña</label>
             </div>
-  
+
             <div class="d-flex justify-content-around align-items-center mb-4">
               <!-- Checkbox -->
               <div class="form-check">
@@ -28,14 +30,14 @@
               </div>
               <a href="#!">¿Olvido la contraseña?</a>
             </div>
-  
+
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
-  
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="login()">Ingresar</button>
+
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0 text-muted">O</p>
             </div>
-  
+
             <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
               role="button">
               <i class="fab fa-facebook-f me-2"></i>Continuar con Facebook
