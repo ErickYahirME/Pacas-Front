@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.component';
 import { VentasPComponent } from './ventas-p/ventas-p.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecuperarPassComponent,
-    VentasPComponent
+    VentasPComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
