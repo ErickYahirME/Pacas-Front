@@ -7,10 +7,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
    
 
   ],
