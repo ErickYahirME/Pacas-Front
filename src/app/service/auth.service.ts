@@ -1,9 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { login, user, userGeneral, userResponse } from '../interface';
 import { Observable } from 'rxjs';
 import { environment} from 'src/environments/environment';
 
+const token = localStorage.getItem('token');
+const headers = new HttpHeaders({
+  'Authorization': `Bearer ${token}`
+});
 
 @Injectable({
   providedIn: 'root'
@@ -25,15 +29,10 @@ export class AuthService {
   }
 
   profileUser(){
-    return this.http.get(`${this.api}profile`);
+    return this.http.get(`${this.api}profile`, {headers});
   }
 
-
-  // validarToken(token: string):Observable<Request>{
-  //   return this.http.post<Request>(`${this.api}user/token`, {token});
-  // }
-
-  // updateUser(id:number, updateUser : user){
-  //   return this.http.put(`${this.api}user/${id}`, updateUser);
-  // }
+  logout(){
+    return this.http.post(`${this.api}logout`,{headers})
+  }
 }
