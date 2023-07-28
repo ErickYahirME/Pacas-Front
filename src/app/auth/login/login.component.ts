@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { login, userGeneral, userResponse } from '../../interface';
 import { ToolsService } from 'src/app/service/tools.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,8 @@ export class LoginComponent {
     private fb : FormBuilder,
     private router: Router,
     private authS: AuthService,
-    private toolS: ToolsService
+    private toolS: ToolsService,
+    private sweetS: SweetAlertService
   ) { }
 
   loginForm : FormGroup = this.fb.group({
@@ -23,9 +25,10 @@ export class LoginComponent {
   });
 
   login(){
-    this.authS.login(this.loginForm.value).subscribe((data:userResponse) => {
+    this.authS.login(this.loginForm.value).subscribe((data:any) => {
       console.log(data.user, 'resultado');
       if(data){
+        this.sweetS.success('Bienvenido');
         this.toolS.setToken(data.access_token);
         this.router.navigateByUrl('/home');
       }
