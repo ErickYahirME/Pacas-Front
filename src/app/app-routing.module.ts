@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { CardComponent } from './components/card/card.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'card',
+    component: CardComponent
+  },
+  {
+    path: 'user',
+    component: UserInfoComponent
+  },{
+    path: '**',
+    redirectTo: 'home',
   }
 ];
 

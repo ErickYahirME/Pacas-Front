@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -8,3 +9,5 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
 }
+
+HeaderComponent
