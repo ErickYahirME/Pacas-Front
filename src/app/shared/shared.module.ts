@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {
     path: 'header',
   component: HeaderComponent
+  },
+  {
+    path: 'footer',
+  component: FooterComponent
   },
   {
     path: '**',
@@ -18,6 +23,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,7 @@ const routes: Routes = [
   ],
   exports: [
     HeaderComponent,
+    FooterComponent
     ]
 
 })

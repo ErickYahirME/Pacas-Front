@@ -8,11 +8,17 @@ import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { SharedModule } from './shared/shared.module';
+import { CardComponent } from './components/card/card.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CardComponent,
+    UserInfoComponent,
+   
 
 
   ],
@@ -22,6 +28,7 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     AuthModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
