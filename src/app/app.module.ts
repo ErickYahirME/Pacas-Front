@@ -20,6 +20,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     UserInfoComponent,
    
 
+
   ],
   imports: [
     BrowserModule,
