@@ -30,7 +30,8 @@ export class LoginComponent {
       if(data){
         this.sweetS.success('Bienvenido');
         this.toolS.setToken(data.access_token);
-        this.router.navigateByUrl('/home');
+        this.toolS.getIdUser(data.user.id);
+        this.router.navigateByUrl('/home/products');
       }
 
     });
