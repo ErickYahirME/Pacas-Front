@@ -23,6 +23,9 @@ export class ToolsService {
     return this.http.post<Request>(`${this.api}user/token`, {token});
   }
 
+  getIdUser(id:number){
+    localStorage.setItem('id', id.toString());
+  }
 
 
 }

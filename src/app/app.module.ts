@@ -7,28 +7,25 @@ import {HttpClientModule} from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/header/header.component';
-import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { CardComponent } from './components/card/card.component';
-import { UserInfoComponent } from './components/user-info/user-info.component';
+import { ComponentsModule } from './components/components.module';
+import { CrudModule } from './crud/crud.module';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    CardComponent,
-    UserInfoComponent,
-   
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterLink,
     AuthModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    ComponentsModule,
+    CrudModule
   ],
   providers: [],
   bootstrap: [AppComponent]

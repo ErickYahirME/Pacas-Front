@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/card/card.component';
-import { UserInfoComponent } from './components/user-info/user-info.component';
+import { VendedorComponent } from './crud/vendedor/vendedor.component';
+import { AdminComponent } from './crud/admin/admin.component';
 
 
 const routes: Routes = [
-  {
+
+
+    {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
@@ -20,19 +23,27 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
   },
   {
-    path: 'card',
-    component: CardComponent
+    path: 'administrador-ventas',
+    component: VendedorComponent,
+    loadChildren: () => import('./crud/crud.module').then(m => m.CrudModule)
   },
   {
-    path: 'user',
-    component: UserInfoComponent
-  },{
+    path: 'admin-crud',
+    component:AdminComponent,
+    loadChildren: () => import('./crud/crud.module').then(m => m.CrudModule)
+  },
+  // {
+  //   path: 'card',
+  //   component: CardComponent
+  // },
+  {
     path: '**',
     redirectTo: 'login',
-  }
+  },
 ];
 
 @NgModule({

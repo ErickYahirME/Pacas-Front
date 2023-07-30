@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'home/products',
   }
 ]
 
@@ -44,7 +44,7 @@ const routes: Routes = [
   CarritoComponent,
   ComprasComponent
   ]
-      
+
 })
 
 export class ComprasModule { }

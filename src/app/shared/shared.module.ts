@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterLink, RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 
@@ -14,10 +14,10 @@ const routes: Routes = [
     path: 'footer',
   component: FooterComponent
   },
-  {
-    path: '**',
-    redirectTo: 'login',
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: 'login',
+  // }
 ]
 
 @NgModule({
@@ -29,6 +29,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    RouterLink
   ],
   exports: [
     HeaderComponent,

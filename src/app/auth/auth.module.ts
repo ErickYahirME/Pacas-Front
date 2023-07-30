@@ -4,9 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ComponentsModule } from '../components/components.module';
 
 const routes: Routes = [
+
   {
     path: 'login',
   component: LoginComponent
@@ -15,30 +16,24 @@ const routes: Routes = [
     path: 'register',
   component: RegistroComponent
   },
+
+
   // {
-  //   path: 'forgot-password',
-  // component:
-  // },
-  {
-    path: 'profile-user',
-  component: UserProfileComponent
-  },
-  {
-    path: '**',
-    redirectTo: 'login',
-  }
+  //   path: '**',
+  //   redirectTo: 'login',
+  // }
 ]
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegistroComponent,
-    UserProfileComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
 
   ],
   exports: [

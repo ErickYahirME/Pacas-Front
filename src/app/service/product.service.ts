@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { productGET } from '../product';
 
 const token = localStorage.getItem('token');
 const headers = new HttpHeaders({
@@ -16,28 +17,28 @@ export class ProductService {
     private http : HttpClient
   ) { }
 
-  getProduct():Observable<Request>{
-    return this.http.get<Request>(`${this.api}allProduct`);
+  getProduct():Observable<productGET[]>{
+    return this.http.get<productGET[]>(`${this.api}allProduct`, {headers});
   }
 
   getProductById(id:number):Observable<Request>{
-    return this.http.get<Request>(`${this.api}product/${id}`);
+    return this.http.get<Request>(`${this.api}product/${id}`, {headers});
   }
 
   addProduct(product:any):Observable<Request>{
-    return this.http.post<Request>(`${this.api}addProduct`, product);
+    return this.http.post<Request>(`${this.api}addProduct`, product, {headers});
   }
 
   updateProduct(product:any):Observable<Request>{
-    return this.http.put<Request>(`${this.api}updateProduct`, product);
+    return this.http.put<Request>(`${this.api}updateProduct`, product, {headers});
   }
 
   deleteProduct(id:number):Observable<Request>{
-    return this.http.delete<Request>(`${this.api}deleteProduct/${id}`);
+    return this.http.delete<Request>(`${this.api}deleteProduct/${id}`, {headers});
   }
 
   getProductByAuthor(authorId:number):Observable<Request>{
-    return this.http.get<Request>(`${this.api}product/author/${authorId}`);
+    return this.http.get<Request>(`${this.api}product/author/${authorId}`, {headers});
   }
 
 }
