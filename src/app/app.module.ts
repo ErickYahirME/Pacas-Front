@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.component';
 import { VentasPComponent } from './ventas-p/ventas-p.component';
 import { FooterComponent } from './footer/footer.component';
+import { ListaClotheComponent } from './Crud-Clothes/lista-clothe/lista-clothe.component';
+import { AddClotheComponent } from './Crud-Clothes/add-clothe/add-clothe.component';
+import { ModificClotheComponent } from './Crud-Clothes/modific-clothe/modific-clothe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecuperarPassComponent,
     VentasPComponent,
-    FooterComponent
+    FooterComponent,
+    ListaClotheComponent,
+    AddClotheComponent,
+    ModificClotheComponent
   ],
   imports: [
     BrowserModule,
