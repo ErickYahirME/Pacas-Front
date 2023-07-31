@@ -1,19 +1,24 @@
+/* margen inferior de la cabecera (espacio). */
 header {
   margin-bottom: 40px;
 }
 
+/* se establece un peso de fuente en negrita para el elemento con la clase. */
 .navbar-brand {
   font-weight: bold;
 }
 
+/* tamaño de fuente para los enlaces de navegación ubicados dentro de ".navbar-nav". */
 .navbar-nav .nav-link {
   font-size: 16px;
 }
 
+/* margen superior a los elementos (carrito). */
 .container {
   margin-top: 20px;
 }
 
+/*los elementos con la clase "card" recibirán un margen superior de 20px (interlineado). */
 .card {
   margin-top: 20px;
 }

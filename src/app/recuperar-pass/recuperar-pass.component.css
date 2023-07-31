@@ -1,0 +1,56 @@
+/* color de fondo del cuerpo de la página */
+body {
+    background-color: #e8e8e8;
+  }
+  
+  /* Estilos para la card */
+  .card {
+      /* Ancho máximo de la card */
+      max-width: 400px;
+      /* Margen automático para centrar la tarjeta horizontalmente */
+      margin: 0 auto;
+      /* Margen superior de 100px */
+      margin-top: 200px;
+      /* Margen inferior de 20px (puedes ajustar este valor según tus necesidades) */
+      margin-bottom: 400px;
+      /* Sin bordes visibles */
+      border: none;
+      /* Esquinas redondeadas con un radio de 10px */
+      border-radius: 10px;
+      /* Sombra de caja */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+  
+  /* Estilos para el título de la tarjeta */
+  .card-title {
+    /* Tamaño de fuente de 24px */
+    font-size: 24px;
+    /* Peso de fuente más grueso */
+    font-weight: 500;
+  }
+  
+  /* Estilos para el botón primario */
+  .btn-primary {
+    /* Color de fondo del botón */
+    background-color: #007bff;
+    /* Color del borde del botón */
+    border-color: #007bff;
+  }
+  
+  /* Estilos para el botón primario cuando el cursor está sobre él */
+  .btn-primary:hover {
+    /* Cambia el color de fondo del botón */
+    background-color: #0069d9;
+    /* Cambia el color del borde del botón */
+    border-color: #0062cc;
+  }
+  
+  /* Estilos para el botón primario cuando está enfocado (hace clic o se selecciona) */
+  .btn-primary:focus,
+  .btn-primary.focus {
+    /* Sombra de caja cuando el botón está enfocado */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  
+  
