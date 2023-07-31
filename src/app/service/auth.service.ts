@@ -20,6 +20,7 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
+
   login(login: login):Observable<userResponse>{
     return this.http.post<userResponse>(`${this.api}login`, login);
   }
@@ -28,8 +29,8 @@ export class AuthService {
     return this.http.post<Request>(`${this.api}register`, register);
   }
 
-  profileUser(){
-    return this.http.get(`${this.api}profile`, {headers});
+  profileUser():Observable<userGeneral[]>{
+    return this.http.get<userGeneral[]>(`${this.api}profile`, {headers});
   }
 
   logout(){

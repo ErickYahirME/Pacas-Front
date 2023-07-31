@@ -19,17 +19,29 @@ export class LoginComponent {
     private sweetS: SweetAlertService
   ) { }
 
+  ngOnInit() {
+    const token:any = this.toolS.getToken();
+    this.toolS.validarToken(token).subscribe((data:any) => {
+      console.log(data, 'Valido Token')
+      if(data.valido == true){
+        this.router.navigateByUrl('/home/products');
+      }
+    });
+
+  }
+
   loginForm : FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   login(){
-    this.authS.login(this.loginForm.value).subscribe((data:any) => {
-      console.log(data.user, 'resultado');
+
+    this.authS.login(this.loginForm.value).subscribe((data:userResponse) => {
+      console.log(data, 'resultado');
       if(data){
         this.sweetS.success('Bienvenido');
-        this.toolS.setToken(data.access_token);
+        this.toolS.setToken(data.token.original.access_token);
         this.toolS.getIdUser(data.user.id);
         this.router.navigateByUrl('/home/products');
       }

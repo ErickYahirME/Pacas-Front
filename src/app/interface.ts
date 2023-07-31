@@ -1,3 +1,4 @@
+
 export interface user{
   id: number;
   name: string;
@@ -22,13 +23,23 @@ export interface cartUser{
 }
 
 export interface userResponse{
-  access_token: string;
   message: string;
   name: string;
-  typeToken:string;
-  user: userGeneral[];
+  token: token;
+  user: userGeneral;
+}
 
+export interface token{
+  exception: boolean | null;
+  headers : {};
+  original: original;
 
+}
+
+export interface original {
+  access_token:string,
+  expires_in:number,
+  token_type:string,
 }
 
 export interface userGeneral{
@@ -40,7 +51,7 @@ export interface userGeneral{
   lastname:string;
   name:string;
   phone:number;
-  rol:string;
+  rol?:string;
   role_id:number;
   sex_id:number;
   updated_at:string;

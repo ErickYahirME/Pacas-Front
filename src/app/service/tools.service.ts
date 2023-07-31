@@ -12,15 +12,20 @@ export class ToolsService {
   ) { }
 
   setToken(data:string){
-    localStorage.setItem('token', data);
+    //JSON.parse(localStorage.getItem('favoritos')  || '[]') || [];
+    localStorage.setItem('token', data || '[]' );
+  }
+
+  getToken(){
+    return localStorage.getItem('token' || '[]');
   }
 
   removeToken(data:string){
     localStorage.removeItem('token');
   }
 
-  validarToken(token: string):Observable<Request>{
-    return this.http.post<Request>(`${this.api}user/token`, {token});
+  validarToken(token: string):Observable<Boolean>{
+    return this.http.post<Boolean>(`${this.api}validarToken`, {token});
   }
 
   getIdUser(id:number){
