@@ -1,1 +1,18 @@
-<p>genere works!</p>
+
+<div class="container">
+    <h3 class="title">Crear de nuevo género</h3>
+    
+<form
+[formGroup]="productoForm">
+
+    <div class="form-outline mb-4" class="generoForm">
+        <label class="form-label" for="sex">Nombra un nuevo Género</label>
+        <input type="text" id="name" formControlName="genero" class="form-control form-control-lg" />
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="save()">Guardar</button>
+</form>
+
+</div>
+
