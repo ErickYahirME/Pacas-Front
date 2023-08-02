@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 const token = localStorage.getItem('token');
@@ -15,7 +16,7 @@ export class GenereAdminService {
   api = 'http://127.0.0.1:8000/api/';
 
   constructor(
-    private http : HttpClient
+    private http : HttpClient,
   ) { }
 
   getGenere(){

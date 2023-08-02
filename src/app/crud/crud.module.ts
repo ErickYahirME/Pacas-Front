@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'editProduct/:id', component: AddEditProductComponent},
 
   {path: 'addClothe', component: ClotheComponent},
+  {path: 'addGenere', component: GenereComponent},
 ]
 
 
