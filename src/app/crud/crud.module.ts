@@ -10,6 +10,8 @@ import { GenereComponent } from './admin/genere/genere.component';
 import { RoleComponent } from './admin/role/role.component';
 import { SizeComponent } from './admin/size/size.component';
 import { AdminComponent } from './admin/admin.component';
+import { AddClotheComponent } from './Clothe/add-clothe/add-clothe.component';
+import { ModificClotheComponent } from './Clothe/modific-clothe/modific-clothe.component';
 
 const routes: Routes = [
   {path: 'addProduct', component: AddEditProductComponent},
@@ -28,7 +30,9 @@ const routes: Routes = [
     GenereComponent,
     RoleComponent,
     SizeComponent,
-    AdminComponent
+    AdminComponent,
+    AddClotheComponent,
+    ModificClotheComponent
   ],
   imports: [
     ReactiveFormsModule,

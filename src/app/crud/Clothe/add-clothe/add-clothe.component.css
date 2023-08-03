@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .card {
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  /* Estilos para los títulos */
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .form-label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para el campo de entrada y el botón */
+  .form-control {
+    font-size: 18px;
+    padding: 12px;
+  }
+  
+  .btn-primary {
+    font-size: 20px;
+    padding: 12px 20px;
+  }
