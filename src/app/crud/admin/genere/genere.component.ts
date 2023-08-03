@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GenereAdminService } from '../../../service/admin-Service/genere-admin.service';
 import { Router } from '@angular/router';
+import { GenereAdminService } from 'src/app/service/admin-Service/genere-admin.service';
 
 @Component({
   selector: 'app-genere',
@@ -22,9 +22,12 @@ export class GenereComponent {
 
 
   save(){
-    console.log(this.productoForm.value);
-    console.log("Se guardó");
-    
+    console.log('sirve',this.productoForm);
+    this.GenereAdminService.addGenere(this.productoForm.value).subscribe(data =>{
+      console.log(data, 'respuesta');
+    })
   }
+
+  
 
 }
