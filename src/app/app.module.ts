@@ -25,7 +25,8 @@ import { RouterLink } from '@angular/router';
     ReactiveFormsModule,
     SharedModule,
     ComponentsModule,
-    CrudModule
+    CrudModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

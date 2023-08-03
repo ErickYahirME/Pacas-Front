@@ -10,6 +10,8 @@ import { GenereComponent } from './admin/genere/genere.component';
 import { RoleComponent } from './admin/role/role.component';
 import { SizeComponent } from './admin/size/size.component';
 import { AdminComponent } from './admin/admin.component';
+import { CrudGeneroComponent } from './admin/crud-genero/crud-genero.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: 'addProduct', component: AddEditProductComponent},
@@ -17,6 +19,7 @@ const routes: Routes = [
 
   {path: 'addClothe', component: ClotheComponent},
   {path: 'addGenere', component: GenereComponent},
+  {path: 'crudGenere', component: CrudGeneroComponent},
 ]
 
 
@@ -28,12 +31,14 @@ const routes: Routes = [
     GenereComponent,
     RoleComponent,
     SizeComponent,
-    AdminComponent
+    AdminComponent,
+    CrudGeneroComponent,
   ],
   imports: [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   exports: [
   VendedorComponent,

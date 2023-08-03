@@ -56,3 +56,10 @@ export interface userGeneral{
   sex_id:number;
   updated_at:string;
 }
+
+export interface sex{
+  id: number;
+  sex: string;
+  created_at: string;
+  updated_at: string;
+}

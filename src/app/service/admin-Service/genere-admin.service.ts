@@ -28,6 +28,7 @@ export class GenereAdminService {
   }
 
   addGenere(genere:any):Observable<Request>{
+    console.log('llega')
     return this.http.post<Request>(`${this.api}addGenero`, genere, {headers});
   }
 
