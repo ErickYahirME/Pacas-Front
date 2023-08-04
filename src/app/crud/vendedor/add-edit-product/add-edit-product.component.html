@@ -1,41 +1,82 @@
-
-<form
-[formGroup]="productoForm">
+<form [formGroup]="productoForm">
+  <br>
+  <h1 align="center">{{title}}</h1>
+  <hr>
 
   <div class="form-outline mb-4">
-            <input type="text" id="name" formControlName="name" class="form-control form-control-lg" />
-            <label class="form-label" for="name">Nombre del producto</label>
+    <input type="text" id="name" formControlName="name" class="form-control form-control-lg" />
+    <label class="form-label" for="name">Nombre del producto</label>
   </div>
 
   <div class="form-outline mb-4">
     <input type="text" id="price" formControlName="price" class="form-control form-control-lg" />
     <label class="form-label" for="price">Precio del producto</label>
-</div>
+  </div>
 
-<div class="form-outline mb-4">
-  <input type="text" id="stock" formControlName="stock" class="form-control form-control-lg" />
-  <label class="form-label" for="stock">Stock disponible</label>
-</div>
+  <div class="form-outline mb-4">
+    <input type="text" id="stock" formControlName="stock" class="form-control form-control-lg" />
+    <label class="form-label" for="stock">Stock disponible</label>
+  </div>
 
-<div class="form-outline mb-4">
-  <input type="text" id="description" formControlName="description" class="form-control form-control-lg" />
-  <label class="form-label" for="description">Breve descripción</label>
-</div>
+  <div class="form-outline mb-4">
+    <input type="text" id="description" formControlName="description" class="form-control form-control-lg" />
+    <label class="form-label" for="description">Breve descripción</label>
+  </div>
 
-<div class="form-outline mb-4">
-  <input type="text" id="image" formControlName="image" class="form-control form-control-lg" />
-  <label class="form-label" for="image">Imagen del producto</label>
-</div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="size_id">Tamaño del producto</label>
+    <select id="size_id" formControlName="size_id" class="form-select form-select-lg">
+      <option *ngFor="let size of availableSizes" [value]="size.id">{{ size.size }}</option>
+    </select>
+  </div>
 
-<div class="form-outline mb-4">
-  <input type="text" id="size_id" formControlName="size_id" class="form-control form-control-lg" />
-  <label class="form-label" for="size_id">Tamaño del producto</label>
-</div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="type_clothes_id">Tipo del producto</label>
+    <select id="type_clothes_id" formControlName="type_clothes_id" class="form-select form-select-lg">
+      <option *ngFor="let clothes of availableClothes" [value]="clothes.id">{{ clothes.name_clothe }}</option>
+    </select>
+  </div>
 
-<div class="form-outline mb-4">
-  <input type="text" id="type_clothes_id" formControlName="type_clothes_id" class="form-control form-control-lg" />
-  <label class="form-label" for="type_clothes_id">Nombre del producto</label>
-</div>
+  <!-- PAra el antes -->
+<!--
+  <button (click)="compressFile()">Upload and compress Image</button>
+  <img [src]="imgResultBeforeCompression" *ngIf="imgResultBeforeCompression" />
+  <img [src]="imgResultAfterCompression" *ngIf="imgResultAfterCompression" /> -->
+<!-- sdslf -->
 
-<button type="submit" class="btn btn-primary btn-lg btn-block" (click)="save()">Ingresar</button>
+<!-- <button (click)="compressFile()">Upload and compress Image</button>
+<img [src]="imgResult" *ngIf="imgResult" />
+
+
+  <img *ngIf="productoForm.get('image')?.value" [src]="productoForm.get('image')?.value" alt="Vista previa de la imagen" class="img-thumbnail mt-2" style="max-height: 200px;"> -->
+
+    <!-- Cambiamos el input type a "file" y asignamos el formControlName "image" -->
+    <div class="form-outline mb-4">
+      <input type="file"  class="form-control"  (change)="onFileSelected($event)" formControlName="image" accept="image/*"/>
+      <!-- <label class="form-label" for="image">Imagen del producto</label> -->
+    </div>
+
+    <!-- Muestra la vista previa de la imagen seleccionada -->
+    <img *ngIf="imgResult" [src]="imgResult" alt="Vista previa de la imagen" class="img-thumbnail mt-2" style="max-height: 200px;">
+
+
+
+
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="save()">Guardar</button>
 </form>
+
+
+
+
+  <!-- <button (click)="compressFile()">Subir y comprimir imagen</button> -->
+  <!-- <img [src]="imgResult" *ngIf="imgResult" /> -->
+
+  <!-- Cambiamos el input type a "file" y asignamos el formControlName "image" -->
+  <!-- <div class="form-outline mb-4"> -->
+    <!-- <input type="file" class="form-control" (change)="onFileSelected($event)" formControlName="image" /> -->
+    <!-- <label class="form-label" for="image">Imagen del producto</label> -->
+  <!-- </div> -->
+
+  <!-- Muestra la vista previa de la imagen seleccionada -->
+  <!-- <img *ngIf="productoForm.get('image')?.value" [src]="productoForm.get('image')?.value" alt="Vista previa de la imagen" class="img-thumbnail mt-2" style="max-height: 200px;"> -->

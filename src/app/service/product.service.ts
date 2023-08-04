@@ -37,8 +37,8 @@ export class ProductService {
     return this.http.delete<Request>(`${this.api}deleteProduct/${id}`, {headers});
   }
 
-  getProductByAuthor(authorId:number):Observable<Request>{
-    return this.http.get<Request>(`${this.api}product/author/${authorId}`, {headers});
+  getProductByAuthor(authorId:number):Observable<productGET[]>{
+    return this.http.get<productGET[]>(`${this.api}product/author/${authorId}`, {headers});
   }
 
 }

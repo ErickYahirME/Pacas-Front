@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { ComponentsModule } from './components/components.module';
 import { CrudModule } from './crud/crud.module';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RouterLink } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
     RouterLink,
     AuthModule,
     ReactiveFormsModule,
