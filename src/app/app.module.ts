@@ -27,7 +27,8 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     SharedModule,
     ComponentsModule,
-    CrudModule
+    CrudModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,49 @@
+<div >
+<div class="login-background" >
+    <form class="custom-form" >
+      <table class="table data-table"   >
+        <thead>
+          <tr>
+
+            <th scope="col">Núm</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Acciones</th>
+
+
+            
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let sex of genero">
+            
+            <td>{{ sex.id }}</td>
+            <td>{{ sex.sex }}</td>
+   
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+
+<!-- 
+<div class="row row-cols-7">
+    <div class="col">
+    Id
+    </div>
+    <div class="col">
+      Sexo
+    </div>
+  </div>
+  
+   <div class="container" *ngFor="let sex of genero">
+      <div class="row row-cols-7">
+        <div class="col">
+          {{ sex.id }}
+        </div>
+        <div class="col">
+          {{ sex.sex }}
+        </div>
+   
+      </div>
+    </div> -->
