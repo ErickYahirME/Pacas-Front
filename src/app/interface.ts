@@ -57,7 +57,7 @@ export interface userGeneral{
   updated_at:string;
 }
 
-export interface sex{
+export interface Sex{
   id: number;
   sex: string;
   created_at: string;

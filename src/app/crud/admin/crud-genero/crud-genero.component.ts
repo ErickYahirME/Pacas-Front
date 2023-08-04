@@ -1,7 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import {sex} from 'src/app/interface';
+import {Sex} from 'src/app/interface';
 import { GenereAdminService } from '../../../service/admin-Service/genere-admin.service';
+import { Router } from '@angular/router';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 
 @Component({
@@ -13,21 +15,38 @@ import { GenereAdminService } from '../../../service/admin-Service/genere-admin.
 
 export class CrudGeneroComponent {
 
-  genero: sex [] = [];
+  genero: Sex [] = [];
 
   constructor(
     private fb : FormBuilder,
-    private GenereAdminService: GenereAdminService
+    private GenereAdminService: GenereAdminService,
+    private route: Router,
+    private sweetS: SweetAlertService
   ){  }
 
-  ngOnInit(): void {
-    this.GenereAdminService.getGenere().subscribe(sex => {
+  ngOnInit(): any  {
+    this.GenereAdminService.getGenere().subscribe( (sex:any) => {
       console.log(sex);
-      // this.genero = sex;
-    });
+      this.genero = sex;
+    })
   }
 
-  
- 
+  deleteGen(data: Sex){
+    this.sweetS.confirm('Estás seguro de eliminar este género','¡Eliminalo!').then ( (result) => {
+      if (result.isConfirmed){
+        this.sweetS.success('Género eliminado');
+        this.GenereAdminService.deleteGenere(data.id).subscribe( (data) => {
+          console.log('sexo eliminado',data);
+          this.ngOnInit();
+        }
+        );
+      }
+    })
+  }
+
+  editGen(data: Sex){
+    this.sweetS.confirm('Estas seguro de editar este género?','¡Editalo!')
+  }
+
 }
 
