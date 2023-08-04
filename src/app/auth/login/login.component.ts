@@ -42,6 +42,7 @@ export class LoginComponent {
       if(data){
         this.sweetS.success('Bienvenido');
         this.toolS.setToken(data.token.original.access_token);
+        this.toolS.getToken();
         this.toolS.getIdUser(data.user.id);
         this.router.navigateByUrl('/home/products');
       }

@@ -26,7 +26,7 @@ const routes = [
     HomeComponent,
     CardComponent,
     ProductsComponent,
-    UserProfileComponent
+    UserProfileComponent,
 
   ],
   imports: [

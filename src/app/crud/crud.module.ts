@@ -10,12 +10,26 @@ import { GenereComponent } from './admin/genere/genere.component';
 import { RoleComponent } from './admin/role/role.component';
 import { SizeComponent } from './admin/size/size.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminCrudComponent } from './vendedor/admin-crud/admin-crud.component';
 
 const routes: Routes = [
-  {path: 'addProduct', component: AddEditProductComponent},
-  {path: 'editProduct/:id', component: AddEditProductComponent},
+  {
+    path: 'inicio-Vendedor',
+    component: AdminCrudComponent
+  },
+  {
+  path: 'addProduct',
+  component: AddEditProductComponent
+  },
+  {
+  path: 'editProduct/:id',
+  component: AddEditProductComponent
+  },
 
-  {path: 'addClothe', component: ClotheComponent},
+  {
+  path: 'addClothe',
+  component: ClotheComponent
+  },
 ]
 
 
@@ -27,12 +41,15 @@ const routes: Routes = [
     GenereComponent,
     RoleComponent,
     SizeComponent,
-    AdminComponent
+    AdminComponent,
+    AdminCrudComponent,
+
   ],
   imports: [
     ReactiveFormsModule,
+    CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
   ],
   exports: [
   VendedorComponent,
