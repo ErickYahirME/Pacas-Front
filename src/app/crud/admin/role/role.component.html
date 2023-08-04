@@ -1,1 +1,16 @@
-<p>role works!</p>
+<div class="container">
+    <h3 class="title">Crear nuevo rol</h3>
+    
+<form
+[formGroup]="RolForm">
+
+    <div class="form-outline mb-4" class="RolForm">
+        <label class="form-label" for="role">Nombra un nuevo rol</label>
+        <input type="text" id="role" formControlName="role" class="form-control form-control-lg" />
+    </div>
+
+    
+    <!--<button type="submit" class="btn btn-primary btn-lg btn-block" (click)="saverole()">Guardar</button> -->
+</form>
+
+</div>

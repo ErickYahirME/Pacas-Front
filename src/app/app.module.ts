@@ -12,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { CrudModule } from './crud/crud.module';
 import { RouterLink } from '@angular/router';
 
+
 @NgModule({
   declarations: [
     AppComponent,
