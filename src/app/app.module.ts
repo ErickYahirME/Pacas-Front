@@ -13,9 +13,11 @@ import { CrudModule } from './crud/crud.module';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
