@@ -45,7 +45,11 @@ export class CrudGeneroComponent {
   }
 
   editGen(data: Sex){
-    this.sweetS.confirm('Estas seguro de editar este género?','¡Editalo!')
+    this.sweetS.confirm('Estas seguro de editar este género?','¡Editalo!').then ( (result) => {
+      if (result.isConfirmed){
+        this.route.navigate(['/admin-crud/addProduct',data.id]);
+      }
+    })
   }
 
 }
