@@ -6,7 +6,7 @@
           <tr>
 
             <th scope="col">Núm</th>
-            <th scope="col">Sexo</th>
+            <th scope="col">Género</th>
             <th scope="col">Acciones</th>
 
 
@@ -18,6 +18,15 @@
             
             <td>{{ sex.id }}</td>
             <td>{{ sex.sex }}</td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editGen(sex)">
+                <i class="fas fa-pen"></i>
+              </button>
+              <br>
+              <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="deleteGen(sex)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
    
           </tr>
         </tbody>

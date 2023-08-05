@@ -67,3 +67,8 @@
     margin-top: 60px; /* Ajustar este valor según el tamaño de la navbar */
   }
 }
+
+.btn-rounded{
+  width: 10px;
+
+}
