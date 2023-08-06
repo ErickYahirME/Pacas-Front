@@ -32,5 +32,12 @@ export class ToolsService {
     localStorage.setItem('id', id.toString());
   }
 
+  setRol( rol:string = 'user'){
+    localStorage.setItem('rol', rol);
+  }
+
+  getRol(){
+    return localStorage.getItem('rol' || '[]');
+  }
 
 }

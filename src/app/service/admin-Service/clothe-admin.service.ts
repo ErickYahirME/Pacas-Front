@@ -2,10 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const token = localStorage.getItem('token');
-const headers = new HttpHeaders({
-  'Authorization': `Bearer ${token}`
-});
+// const token = localStorage.getItem('token');
+// const headers = new HttpHeaders({
+//   'Authorization': `Bearer ${token}`
+// });
 
 @Injectable({
   providedIn: 'root'
@@ -18,22 +18,42 @@ export class ClotheAdminService {
   ) { }
 
   getClothe():Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.get<Request>(`${this.api}tipoRopa`, {headers});
   }
 
   getClotheById(id:number):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.get<Request>(`${this.api}tipoRopa/${id}`, {headers});
   }
 
   addClothe(clothe:any):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.post<Request>(`${this.api}addTipoRopa`, clothe, {headers});
   }
 
   updateClothe(clothe:any, id:number):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.put<Request>(`${this.api}updateTypeClothe/${id}`, clothe, {headers});
   }
 
   deleteClothe(id:number):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.delete<Request>(`${this.api}deleteTypeClothe/${id}`, {headers});
   }
 }

@@ -15,7 +15,6 @@ export class UserProfileComponent {
     private authS: AuthService,
   ){
     this.authS.profileUser().subscribe((data:userGeneral[]) => {
-      // console.log('datos del usuario',data);
       this.perfilUser = data;
       console.log(this.perfilUser, 'datos del usuario');
     });

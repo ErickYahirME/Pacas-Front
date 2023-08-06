@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { productGET } from '../product';
 
-const token = localStorage.getItem('token');
-const headers = new HttpHeaders({
-  'Authorization': `Bearer ${token}`
-});
+// const token = localStorage.getItem('token');
+// const headers = new HttpHeaders({
+//   'Authorization': `Bearer ${token}`
+// });
 @Injectable({
   providedIn: 'root'
 })
@@ -18,26 +18,50 @@ export class ProductService {
   ) { }
 
   getProduct():Observable<productGET[]>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
     return this.http.get<productGET[]>(`${this.api}allProduct`, {headers});
   }
 
   getProductById(id:number):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.get<Request>(`${this.api}product/${id}`, {headers});
   }
 
   addProduct(product:any):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.post<Request>(`${this.api}addProduct`, product, {headers});
   }
 
-  updateProduct(product:any):Observable<Request>{
-    return this.http.put<Request>(`${this.api}updateProduct`, product, {headers});
+  updateProduct(id:number,product:any):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<Request>(`${this.api}updateProduct/${id}`, product, {headers});
   }
 
   deleteProduct(id:number):Observable<Request>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.delete<Request>(`${this.api}deleteProduct/${id}`, {headers});
   }
 
   getProductByAuthor(authorId:number):Observable<productGET[]>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.get<productGET[]>(`${this.api}product/author/${authorId}`, {headers});
   }
 
