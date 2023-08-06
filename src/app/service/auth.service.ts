@@ -4,10 +4,7 @@ import { login, user, userGeneral, userResponse } from '../interface';
 import { Observable } from 'rxjs';
 import { environment} from 'src/environments/environment';
 
-const token = localStorage.getItem('token');
-const headers = new HttpHeaders({
-  'Authorization': `Bearer ${token}`
-});
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +23,23 @@ export class AuthService {
   }
 
   register(register: user):Observable<Request>{
+
     return this.http.post<Request>(`${this.api}register`, register);
   }
 
   profileUser():Observable<userGeneral[]>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
     return this.http.get<userGeneral[]>(`${this.api}profile`, {headers});
   }
 
   logout(){
-    return this.http.post(`${this.api}logout`,{headers})
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.api}logout`,{}, {headers})
   }
 }

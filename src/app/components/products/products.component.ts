@@ -17,10 +17,15 @@ export class ProductsComponent {
   ) {}
 
   ngOnInit() {
-    this.productS.getProduct().subscribe((data:productGET[]) => {
+    this.getProducts();
+  }
+
+  async getProducts(){
+    await this.productS.getProduct().subscribe((data:productGET[]) => {
       this.products = data;
       // console.log('products get',this.products);
       console.log(data);
     });
   }
+
 }

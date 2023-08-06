@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VendedorComponent } from './vendedor/vendedor.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEditProductComponent } from './vendedor/add-edit-product/add-edit-product.component';
 import { SharedModule } from '../shared/shared.module';
@@ -69,8 +69,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
-
-
+    FormsModule,
     HttpClientModule
 
   ],

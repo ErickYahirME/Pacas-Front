@@ -20,13 +20,13 @@ export class LoginComponent {
   ) { }
 
   ngOnInit() {
-    const token:any = this.toolS.getToken();
-    this.toolS.validarToken(token).subscribe((data:any) => {
-      console.log(data, 'Valido Token')
-      if(data.valido == true){
-        this.router.navigateByUrl('/home/products');
-      }
-    });
+    // const token:any = this.toolS.getToken();
+    // this.toolS.validarToken(token).subscribe((data:any) => {
+    //   console.log(data, 'Valido Token')
+    //   if(data.valido == true){
+    //     this.router.navigateByUrl('/home/products');
+    //   }
+    // });
 
   }
 
@@ -42,12 +42,20 @@ export class LoginComponent {
       if(data){
         this.sweetS.success('Bienvenido');
         this.toolS.setToken(data.token.original.access_token);
-        this.toolS.getToken();
+        // this.toolS.getToken();
         this.toolS.getIdUser(data.user.id);
+        this.toolS.setRol(data.user.rol);
+        console.log(data.user.rol, 'rol');
         this.router.navigateByUrl('/home/products');
       }
 
-    });
+
+    } , (error) => {
+      console.log(error, 'error');
+      this.sweetS.error('Error al iniciar sesión verifique sus credenciales');
+    }
+
+    );
   }
 
 }
