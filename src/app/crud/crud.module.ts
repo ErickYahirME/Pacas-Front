@@ -15,6 +15,7 @@ import { AdminCrudComponent } from './vendedor/admin-crud/admin-crud.component';
 
 import { CrudGeneroComponent } from './admin/crud-genero/crud-genero.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CrudClotheComponent } from './admin/crud-clothe/crud-clothe.component';
 
 
 const routes: Routes = [
@@ -33,13 +34,28 @@ const routes: Routes = [
 
 
   {
-  path: 'addClothe',
+  path: 'addClothe/id',
+  component: ClotheComponent
+  },
+  {
+  path: 'editClothe/id',
   component: ClotheComponent
   },
 
   {path: 'addClothe', component: ClotheComponent},
-  {path: 'addGenere', component: GenereComponent},
-  {path: 'crudGenere', component: CrudGeneroComponent},
+
+  {
+    path: 'addGenere/id', 
+    component: GenereComponent
+  },
+  {
+    path: 'editGenere/id', 
+    component: GenereComponent
+  },
+  {
+    path: 'crudGenere', 
+    component: CrudGeneroComponent
+  },
 
 ]
 
@@ -58,6 +74,7 @@ const routes: Routes = [
 
 
     CrudGeneroComponent,
+        CrudClotheComponent,
 
   ],
   imports: [

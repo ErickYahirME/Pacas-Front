@@ -16,18 +16,32 @@ export class GenereComponent {
     private Router: Router, 
   ) { }
 
-  productoForm : FormGroup = this.fb.group({
+  id:any;
+  generoToEdit:any =[];
+
+  generoForm : FormGroup = this.fb.group({
     sex: ['', [Validators.required, Validators.minLength(1)]],
   });
 
+ 
 
   save(){
-    console.log('sirve',this.productoForm);
-    this.GenereAdminService.addGenere(this.productoForm.value).subscribe(data =>{
+    console.log('sirve',this.generoForm);
+    this.GenereAdminService.addGenere(this.generoForm.value).subscribe(data =>{
       console.log(data, 'respuesta');
     })
   }
 
+  getGenereById(id:any){
+    this.GenereAdminService.getGenereById(id).subscribe(data => {
+      this.generoToEdit = data;
+      console.log('data',data);
+      this.generoForm.patchValue({
+        sex: this.generoToEdit?. sex,
+      });
+      
+    })
+  }
   
 
 }

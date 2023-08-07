@@ -49,7 +49,7 @@ export class CrudGeneroComponent {
       if (result.isConfirmed){
         this.route.navigate(['/admin-crud/addProduct',data.id]);
       }
-    })
+    });
   }
 
 }
