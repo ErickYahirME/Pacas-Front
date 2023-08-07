@@ -1,36 +1,40 @@
-<div >
-<div class="login-background" >
-    <form class="custom-form" >
-      <table class="table data-table"   >
-        <thead>
-          <tr>
-
-            <th scope="col">Núm</th>
-            <th scope="col">Género</th>
-            <th scope="col">Acciones</th>
-
-
-            
-          </tr>
-        </thead>
-        <tbody >
-          <tr *ngFor="let sex of genero">
-            
-            <td>{{ sex.id }}</td>
-            <td>{{ sex.sex }}</td>
-            <td>
-              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editGen(sex)">
-                <i class="fas fa-pen"></i>
-              </button>
-              <br>
-              <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="deleteGen(sex)">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-   
-          </tr>
-        </tbody>
-      </table>
+<h1>Crud-genero</h1>
+<div>
+  <div class="login-background">
+    <form class="custom-form">
+      <!-- Agregar un contenedor con scroll -->
+      <div class="table-container">
+        <table class="table data-table">
+          <thead>
+            <tr>
+              <th scope="col">Núm</th>
+              <th scope="col">Género</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Mantener *ngFor en la etiqueta <tr> -->
+            <tr *ngFor="let sex of genero">
+              <td>{{ sex.id }}</td>
+              <td>{{ sex.sex }}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editGen(sex)">
+                  <span class="material-symbols-outlined">
+                    edit
+                    </span>
+                </button>
+                <br>
+                <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="deleteGen(sex)">
+                  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+                  <span class="material-symbols-outlined">
+                    delete
+                    </span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </form>
   </div>
 </div>

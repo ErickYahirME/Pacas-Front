@@ -52,9 +52,15 @@
 /* Ajustar el tamaño de la tabla */
 .data-table {
   font-size: 14px; /* Tamaño de fuente más pequeño */
+  width: 100%; /* Asegurar que la tabla ocupe todo el ancho disponible */
 }
 
-/* Resto de tus estilos para el botón y enlace permanecen igual */
+/* Agregar estilos para el contenedor con scroll */
+.table-container {
+  max-height: 500px; /* Altura máxima para mostrar el scroll */
+  overflow-y: auto; /* Habilitar el scroll vertical cuando los datos superan la altura máxima */
+  margin-top: 20px; /* Ajustar el margen superior para separar de otros elementos */
+}
 
 /* Ajustar el contenido del formulario para evitar que se solape con la navbar */
 .custom-form {
@@ -68,7 +74,22 @@
   }
 }
 
-.btn-rounded{
-  width: 10px;
+/* ... */
 
+.btn-rounded {
+  width: 30px; /* Reducir el ancho del botón */
+  height: 30px; /* Agregar una altura fija al botón */
+  margin: 5px; /* Agregar un margen entre los botones */
+  display: inline-flex; /* Cambiar a display inline-flex para centrar el contenido */
+  justify-content: center; /* Centrar horizontalmente el contenido del botón */
+  align-items: center; /* Centrar verticalmente el contenido del botón */
+  text-align: center; /* Alinear el contenido del botón al centro */
+  line-height: 1; /* Eliminar el espacio vertical adicional */
 }
+
+.material-symbols-outlined {
+  font-size: 14px; /* Tamaño del icono */
+  line-height: 1; /* Eliminar el espacio vertical adicional */
+}
+
+/* ... */

@@ -1,16 +1,18 @@
-<div class="container">
+<div class="container host">
 
-<div class="card">
-    <h2 class="text-center mb-4">Agregar nuevo género</h2>
+  <div class="card p-4 shadow-lg rounded-lg">
+
+    <h2 class="text-center mb-4 title">Agregar nuevo género</h2>
+
     <form [formGroup]="productoForm">
-      <div class="mb-3">
-        <input type="text" class="form-control" id="tituloRopa" placeholder="Ingresa el tipo de ropa" formControlName="sex">
+      <div class="mb-3 generoForm">
+        <label for="tituloRopa" class="form-label">Tipo de ropa</label>
+        <input type="text" class="form-control" id="tituloRopa" placeholder="Ejemplo: Camisas" formControlName="sex">
       </div>
       <div class="d-grid gap-2">
-
-        <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Guardar</button>
+        <button type="submit" class="btn btn-primary btn-lg"  (click)="save()">Guardar</button>
       </div>
     </form>
   </div>
-
 </div>
+
