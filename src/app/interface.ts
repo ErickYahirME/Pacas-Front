@@ -63,3 +63,10 @@ export interface Sex{
   created_at: string;
   updated_at: string;
 }
+
+export interface typeCloth{
+  id: number;
+  name_clothe: string;
+  created_at: string;
+  updated_at: string;
+}

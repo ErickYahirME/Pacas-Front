@@ -1,1 +1,16 @@
-<p>clothe works!</p>
+<div class="container">
+
+    <div class="card">
+        <h2 class="text-center mb-4">Agregar nuevo tipo de prenda</h2>
+        <form [formGroup]="ClotForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="tipoDPrenda" placeholder="Ingresa el tipo de prenda" formControlName="name_clothe">
+          </div>
+          <div class="d-grid gap-2">
+    
+            <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Guardar</button>
+          </div>
+        </form>
+      </div>
+    
+    </div>

@@ -1,0 +1,36 @@
+<div >
+    <div class="login-background" >
+        <form class="custom-form" >
+          <table class="table data-table"   >
+            <thead>
+              <tr>
+    
+                <th scope="col">Núm</th>
+                <th scope="col">Tipo de prenda</th>
+                <th scope="col">Acciones</th>
+    
+    
+                
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let typeCloth of ropa">
+                
+                <td>{{ typeCloth.id }}</td>
+                <td>{{ typeCloth.name_clothe }}</td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="deletTypeCloth(typeCloth)">
+                    <i class="fas fa-pen"></i>
+                  </button>
+                  <br>
+                  <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="deletTypeCloth(typeCloth)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+       
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
