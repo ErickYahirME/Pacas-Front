@@ -35,6 +35,7 @@ const routes: Routes = [
   },
 
 
+  // Rutas de tipo de ropa 
   {
   path: 'addClothe/id',
   component: ClotheComponent
@@ -43,9 +44,16 @@ const routes: Routes = [
   path: 'editClothe/id',
   component: ClotheComponent
   },
+  {
+    path: 'addClothe',
+    component: ClotheComponent
+  },
+  {
+    path: 'crudClothe', 
+    component: CrudClotheComponent
+  },
 
-  {path: 'addClothe', component: ClotheComponent},
-
+  // Rutas de Genero
   {
     path: 'addGenere/id', 
     component: GenereComponent
@@ -55,10 +63,13 @@ const routes: Routes = [
     component: GenereComponent
   },
   {
+    path: 'addGenere', 
+    component: GenereComponent
+  },
+  {
     path: 'crudGenere', 
     component: CrudGeneroComponent
   },
-
 ]
 
 
