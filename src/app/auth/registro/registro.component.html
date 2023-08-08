@@ -12,46 +12,46 @@
             <!-- Name input -->
             <h1>Registro</h1>
             <div class="form-outline mb-4">
-              <input type="nombre" id="nombre" formControlName="nombre" class="form-control form-control-lg" />
-              <label class="form-label" for="nombre">Nombre</label>
+              <input type="name" id="name" formControlName="name" class="form-control form-control-lg" />
+              <label class="form-label" for="name">Nombre</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="apellido" id="apellido" formControlName="apellido" class="form-control form-control-lg" />
-              <label class="form-label" for="apellido">Apellido</label>
+              <input type="lastname" id="lastname" formControlName="lastname" class="form-control form-control-lg" />
+              <label class="form-label" for="lastname">Apellido</label>
             </div>
 
             <!-- Sex Input -->
             <div class="form-outline mb-4">
-              <label class="form-label" for="sexo">Sexo</label>
-            <select class="form-select" aria-label="Default select example" id="sexo" formControlName="sexo">
-              <option value="1">Mujer</option>
-              <option value="2">Hombre</option>
+              <label class="form-label" for="sex_id">Sexo</label>
+            <select class="form-select" aria-label="Default select example" id="sex_id" formControlName="sex_id">
+              <option value="1">Hombre</option>
+              <option value="2">Mujer</option>
             </select>
             </div>
 
             <!-- Role input -->
             <div class="form-outline mb-4">
-              <label class="form-label" for="rol">Rol</label>
-            <select class="form-select" aria-label="Default select example" id="rol" formControlName="rol">
+              <label class="form-label" for="role_id">Rol</label>
+            <select class="form-select" aria-label="Default select example" id="role_id" formControlName="role_id">
               <option value="1">Administrador</option>
-              <option value="2">Comprador</option>
-              <option value="3">Vendedor</option>
+              <option value="2">Vendedor</option>
+              <option value="3">Comprador</option>
             </select>
             </div>
 
             <!-- Phone input -->
             <div class="form-outline mb-4">
-              <input type="telefono" id="telefono" formControlName="telefono" class="form-control form-control-lg" />
-              <label class="form-label" for="telefono">Telefono</label>
+              <input type="phone" id="phone" formControlName="phone" class="form-control form-control-lg" />
+              <label class="form-label" for="phone">Telefono</label>
             </div>
 
 
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" id="form1Example13" class="form-control form-control-lg" />
-                <label class="form-label" for="form1Example13">Correo electronico</label>
+                <input type="email" id="email" formControlName="email" class="form-control form-control-lg" />
+                <label class="form-label" for="email">Correo electronico</label>
               </div>
 
             <!-- Password input -->
@@ -70,7 +70,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Registrarse</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="register()">Registrarse</button>
 
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0 text-muted">O</p>
@@ -85,7 +85,7 @@
               <i class="fab fa-twitter me-2"></i>Registrarse con Twitter</a>
 
               <div class="divider d-flex align-items-center my-4">
-              <p class="mb-5 pb-lg-2" style="color: #393f81;">¿Ya es miembro? <a routerLink="/login"
+              <p class="mb-5 pb-lg-2" style="color: #393f81;">¿Ya es miembro? <a routerLink="/auth/login"
                 style="color: #393f81;">Ingrese aqui</a></p>
               </div>
           </form>
