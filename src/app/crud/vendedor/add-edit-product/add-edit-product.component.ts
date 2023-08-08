@@ -7,6 +7,7 @@ import { SweetAlertService } from '../../../service/sweet-alert.service';
 import { ForeignKeysService } from '../../../service/foreign-keys.service';
 
 import {NgxImageCompressService} from 'ngx-image-compress';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-add-edit-product',
   templateUrl: './add-edit-product.component.html',
@@ -21,7 +22,8 @@ export class AddEditProductComponent {
     private actRoute: ActivatedRoute,
     private SweetS: SweetAlertService,
     private foreignS: ForeignKeysService,
-    private imageCompress: NgxImageCompressService
+    private imageCompress: NgxImageCompressService,
+    private http: HttpClient
   ) { }
 
   title = 'Agregar Producto';
@@ -44,7 +46,7 @@ export class AddEditProductComponent {
     price: ['', [Validators.required,]],
     stock: ['', [Validators.required, ]],
     description: ['', [Validators.required, ]],
-    image: [null, [Validators.required, ]],
+    image: [null,],
     author_id: [localStorage.getItem('id')],
     size_id: ['', [Validators.required, ]],
     type_clothes_id: ['', [Validators.required, ]],
@@ -72,21 +74,18 @@ export class AddEditProductComponent {
 
 getSize(){
   this.foreignS.getSize().subscribe(data => {
-    console.log('data',data);
+    // console.log('data',data);
     this.availableSizes = data;
   })
 }
 
 getClothes(){
   this.foreignS.getTypeClothes().subscribe(data => {
-    console.log('data',data);
+    // console.log('data',data);
     this.availableClothes = data;
   })
 }
 
-  get nameValidate() {
-    return this.productoForm.get('name')?.invalid && this.productoForm.get('name')?.touched;
-  }
 
   getProductById(id:any){
     this.productoS.getProductById(id).subscribe(data => {
@@ -100,13 +99,22 @@ getClothes(){
         author_id: this.productToEdit?.author_id,
         size_id: this.productToEdit?.size_id,
         type_clothes_id: this.productToEdit?.type_clothes_id,
-        image: this.productToEdit?.image,
+        image: this.productToEdit?.image
       });
 
       const imageUrl = this.productToEdit?.image;
       if (imageUrl) {
+        this.getImageFile(imageUrl).then(imageFile => {
+          // Asignar la imagen convertida al formulario
+          this.productoForm.patchValue({
+            image: imageFile
+          });
+
+          // Llamar a la función de compresión para mostrar la imagen actual del producto
+          this.compressImage(imageUrl, 200000);
+        });
         // Llama a la función de compresión para mostrar la imagen actual del producto
-        this.compressImage(imageUrl, 200000);
+
       } else {
         // Si no hay una imagen existente, establece imgResult en null
         this.imgResult = null;
@@ -114,6 +122,16 @@ getClothes(){
 
     })
   }
+
+  async getImageFile(imageUrl: string): Promise<File> {
+    return fetch(imageUrl)
+      .then(response => response.blob())
+      .then(blob => {
+        // Crear un objeto File a partir del Blob y asignar un nombre
+        return new File([blob], "image.jpg", { type: blob.type, lastModified: Date.now() });
+      });
+  }
+
 
   optionBtn(){
     if(this.id == null){
@@ -126,7 +144,7 @@ getClothes(){
 
   save(){
 
-    if (this.productoForm.valid) {
+    if (this.productoForm) {
       const formData = new FormData();
       formData.append('name', this.productoForm.get('name')?.value);
       formData.append('price', this.productoForm.get('price')?.value);
@@ -137,40 +155,114 @@ getClothes(){
       formData.append('size_id', this.productoForm.get('size_id')?.value);
       formData.append('type_clothes_id', this.productoForm.get('type_clothes_id')?.value);
 
-      this.productoS.addProduct(formData).subscribe(response => {
-        console.log('response',response);
-        this.SweetS.success('Producto');
-        this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
-      }, error => {
-        console.log('error',error);
-        this.SweetS.error('Error');
-      });
+
+    // Convertir FormData a un objeto JSON
+    const formDataObject:any = {};
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
+
+    // Imprimir el objeto JSON en la consola
+    console.log('formData para enviar:', formDataObject);
+
+      // this.productoS.addProduct(formData).subscribe(response => {
+      //   console.log('response',response);
+      //   this.SweetS.success('Producto');
+      //   this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
+      // }, error => {
+      //   console.log('error',error);
+      //   this.SweetS.error('Error');
+      // });
     }
   }
 
-  update(){
-    if (this.productoForm.valid) {
+  // update(){
+  //   if (this.productoForm.valid) {
+  //     const formData = new FormData();
+  //     formData.append('name', this.productoForm.get('name')?.value);
+  //     formData.append('price', this.productoForm.get('price')?.value);
+  //     formData.append('stock', this.productoForm.get('stock')?.value);
+  //     formData.append('description', this.productoForm.get('description')?.value);
+  //     formData.append('image', this.productoForm.get('image')?.value);
+  //     formData.append('author_id', this.productoForm.get('author_id')?.value);
+  //     formData.append('size_id', this.productoForm.get('size_id')?.value);
+  //     formData.append('type_clothes_id', this.productoForm.get('type_clothes_id')?.value);
+  //     formData.append('_method', 'PUT');
+
+  //     console.log('formData para enviar',formData);
+
+  //     this.productoS.updateProduct(this.id, formData).subscribe(response => {
+  //       console.log('DAtos que actualizas',response);
+  //       this.SweetS.success('Producto Actualizado');
+  //       this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
+  //     }, error => {
+  //       console.log('error',error);
+  //       this.SweetS.error('Error al Actualizar');
+  //     });
+  //   }
+  // }
+
+  async update() {
+    // if (this.productoForm.valid) {
       const formData = new FormData();
+      formData.append('_method', 'PUT'); // Agregar _method aquí
       formData.append('name', this.productoForm.get('name')?.value);
       formData.append('price', this.productoForm.get('price')?.value);
       formData.append('stock', this.productoForm.get('stock')?.value);
       formData.append('description', this.productoForm.get('description')?.value);
-      formData.append('image', this.productoForm.get('image')?.value);
+      // formData.append('image', this.productoForm.get('image')?.value);
       formData.append('author_id', this.productoForm.get('author_id')?.value);
       formData.append('size_id', this.productoForm.get('size_id')?.value);
       formData.append('type_clothes_id', this.productoForm.get('type_clothes_id')?.value);
 
-      this.productoS.updateProduct(this.id, formData).subscribe(response => {
-        console.log('DAtos que actualizas',response);
-        this.SweetS.success('Producto Actualizado');
-        this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
-      }, error => {
-        console.log('error',error);
-        this.SweetS.error('Error al Actualizar');
-      });
+    //validar si se selecciono una imagen nueva o no para actualizar
+    const imageFile = this.productoForm.get('image')?.value;
+    if (imageFile instanceof File) {
+      formData.append('image', imageFile);
     }
-  }
 
+
+      // const imageFile = this.productoForm.get('image')?.value;
+
+      // if (typeof imageFile === 'string' && imageFile.startsWith('http')) {
+      //   try {
+      //     // Convertir la URL a un objeto Blob
+      //     const response = await this.http.get(imageFile, { responseType: 'blob' }).toPromise();
+      //     const blob = response as Blob;
+
+      //     // Crear un objeto File
+      //     const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+      //     formData.append('image', file);
+      //   } catch (error) {
+      //     console.error('Error al cargar la imagen:', error);
+      //   }
+      // } else if (imageFile instanceof File) {
+      //   formData.append('image', imageFile);
+      // }
+
+    // Convertir FormData a un objeto JSON
+    const formDataObject:any = {};
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
+
+    // Imprimir el objeto JSON en la consola
+    console.log('formData para enviar:', formDataObject);
+
+
+      this.productoS.updateProduct(this.id, formData).subscribe(
+        (response) => {
+          console.log('Datos que actualizas', response);
+          this.SweetS.success('Producto Actualizado');
+          this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
+        },
+        (error) => {
+          console.log('error', error);
+          this.SweetS.error('Error al Actualizar');
+        }
+      );
+    // }
+  }
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
