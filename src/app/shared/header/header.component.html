@@ -22,7 +22,7 @@
       <a class="navbar-brand mt-2 mt-lg-0"
       routerLink="/home/products">
         <img
-          src="/assets/iconoPacasLogin.jpg"
+          src="/assets/pacaLogo.png"
           height="50"
           alt="MDB Logo"
           loading="lazy"
@@ -62,6 +62,35 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/admin-crud/addClothe">Admin General CRUD</a>
         </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Admin General
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" routerLink="/admin-crud/addGenere">Agregar Género</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin-crud/crudGenere">Crud Género</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin-crud/addClothe">Agregar tipo de ropa</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin-crud/crudClothe">Crud tipo de ropa</a>
+            </li>
+          </ul>
+        </li>
+
+        
         <!-- <li class="nav-item">
           <a class="nav-link" href="#">Projects</a>
         </li> -->
@@ -114,6 +143,8 @@
     </div>
     <!-- Right elements -->
   </div>
+
+ 
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
