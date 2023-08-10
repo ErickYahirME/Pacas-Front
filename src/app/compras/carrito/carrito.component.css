@@ -1,8 +1,12 @@
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
 .titulo{
     text-align: center;
     font-size: 50px;
     color: black;
-    
+
 }
 
 .hr{
@@ -18,9 +22,9 @@
 
 .clearCarrito{
     margin-left: 50px;
-    
 
-} 
+
+}
 
 .updateCarrito{
     margin-left: 1100px;

@@ -28,7 +28,12 @@ export class ToolsService {
     return this.http.post<Boolean>(`${this.api}validarToken`, {token});
   }
 
-  getIdUser(id:number){
+  getIdUser(){
+    return localStorage.getItem('id' || '[]');
+  }
+
+  setIdUser(id:number){
+
     localStorage.setItem('id', id.toString());
   }
 

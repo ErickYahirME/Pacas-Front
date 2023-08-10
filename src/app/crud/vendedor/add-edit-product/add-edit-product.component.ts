@@ -165,14 +165,14 @@ getClothes(){
     // Imprimir el objeto JSON en la consola
     console.log('formData para enviar:', formDataObject);
 
-      // this.productoS.addProduct(formData).subscribe(response => {
-      //   console.log('response',response);
-      //   this.SweetS.success('Producto');
-      //   this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
-      // }, error => {
-      //   console.log('error',error);
-      //   this.SweetS.error('Error');
-      // });
+      this.productoS.addProduct(formData).subscribe(response => {
+        console.log('response',response);
+        this.SweetS.success('Producto');
+        this.router.navigateByUrl('/administrador-ventas/inicio-Vendedor');
+      }, error => {
+        console.log('error',error);
+        this.SweetS.error('Error');
+      });
     }
   }
 
