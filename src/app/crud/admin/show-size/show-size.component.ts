@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
 import { SizeAdminService } from 'src/app/service/admin-Service/size-admin.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 @Component({
   selector: 'app-show-size',
@@ -15,6 +16,7 @@ export class ShowSizeComponent implements OnInit{
     private fb: FormBuilder,
     private sizeadmin: SizeAdminService,
     private router: Router, 
+    private sweetS: SweetAlertService
   ) {}
   sizes: any = [];
 
@@ -39,14 +41,16 @@ export class ShowSizeComponent implements OnInit{
       });
   }
 
-  goToEditSize(id: number){
-    this.router.navigateByUrl(`/edit-size/${id}`); 
+  goToEditSize(id: number){ 
+    this.router.navigateByUrl(`/admin-crud/editSize/${id}`);
     console.log('Here I go to the edit-size!');
 
 
   }
 
   deleteSize(id: number) { 
+    this.sweetS.confirm('Estás seguro de eliminar la talla','Eliminar').then ( (result) => {
+      if (result.isConfirmed){
       this.sizeadmin.deleteSize(id).subscribe({
         next: () => {
           // elimina el producto de la lista de productos
@@ -62,5 +66,7 @@ export class ShowSizeComponent implements OnInit{
       });
 
   }
+})
+}
 
 }

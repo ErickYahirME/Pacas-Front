@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, switchMap } from 'rxjs';
 import { SizeAdminService } from 'src/app/service/admin-Service/size-admin.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 @Component({
   selector: 'app-edit-size',
@@ -15,7 +16,8 @@ export class EditSizeComponent implements OnInit {
     private fb: FormBuilder,
     private sizeadmin: SizeAdminService,
     private router: Router,
-    private actR : ActivatedRoute 
+    private actR : ActivatedRoute ,
+    private sweetS: SweetAlertService
   ) {}
   sizes: any = [];
   productss: Object[] = [];
@@ -29,25 +31,26 @@ export class EditSizeComponent implements OnInit {
     //   console.log('este id usare para editar',idd) 
     // })
     const id = parseInt(this.actR.snapshot.paramMap.get('id') || '');
-    this.sizeadmin.getSizeById(id).subscribe((size: any)=>{
+    this.sizeadmin.getSizeById(id).subscribe((talla: any)=>{
       this.SizeForm.setValue({
-        name: size.name
-      });
-      console.log('This is my id: ', id);
-      console.log('This is my new object: ', size);
+        size: talla.size
+      })
     });
+   
+    
 }
 
 updatesize() {
   const id = parseInt(this.actR.snapshot.paramMap.get('id') || '');
   this.sizeadmin.updateSize(id, this.SizeForm.value).pipe(
-    switchMap(() => this.router.navigateByUrl('/show-size'))
+    switchMap(() => this.router.navigateByUrl('/admin-crud/showSize'))
   ).subscribe({
     next: (data) => console.log(data),
     error: (error) => console.error('Este es el: ', error)
   });
   this.getAllSize();
-  this.router.navigateByUrl('/show-size');
+  this.sweetS.success('Talla actualizada');
+  this.router.navigateByUrl('/admin-crud/showSize');
 }
 
 getAllSize() {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SizeAdminService } from 'src/app/service/admin-Service/size-admin.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 @Component({
   selector: 'app-size',
@@ -14,6 +15,7 @@ export class SizeComponent {
     private fb: FormBuilder,
     private sizeadmin: SizeAdminService,
     private router: Router, 
+    private sweetS: SweetAlertService
   ) {}
 
   SizeForm : FormGroup = this.fb.group({
@@ -21,16 +23,15 @@ export class SizeComponent {
   });
 
   savesize() {
-    if (this.SizeForm && this.SizeForm.valid) {
-      const formData = {
-        size: this.SizeForm.get('size')!.value
-      };
-      this.sizeadmin.addSize(formData).subscribe(() => {
-        console.log('talla guardada');
-        // resetear el formulario después de guardar
-        this.SizeForm.reset();
-      });
-    }
+    let newdata = this.SizeForm.value;
+    console.log(newdata)
+
+    this.sizeadmin.addSize(newdata).subscribe(res=>{
+      console.log(res);
+    })
+    this.sweetS.success('Talla guardada');
+    this.router.navigateByUrl('/admin-crud/showSize');
+    
 
 
   }
