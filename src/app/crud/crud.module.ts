@@ -18,6 +18,8 @@ import { AdminCrudComponent } from './vendedor/admin-crud/admin-crud.component';
 import { CrudGeneroComponent } from './admin/crud-genero/crud-genero.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CrudClotheComponent } from './admin/crud-clothe/crud-clothe.component';
+import { ShowRoleComponent } from './admin/show-role/show-role.component';
+import { EditRoleComponent } from './admin/edit-role/edit-role.component';
 
 
 const routes: Routes = [
@@ -70,6 +72,36 @@ const routes: Routes = [
     path: 'crudGenere', 
     component: CrudGeneroComponent
   },
+
+  // Rutas de talla
+  {
+    path: 'addSize',
+    component: SizeComponent
+  },
+  {
+    path: 'showSize',
+    component: ShowSizeComponent
+  },
+  {
+    path: 'editSize/:id',
+    component: EditSizeComponent
+  },
+
+  // Rutas de rol
+  {
+    path: 'addRole',
+    component: RoleComponent
+  },
+  {
+    path: 'showRole',
+    component: ShowRoleComponent
+  },
+  {
+    path: 'editRole/:id',
+    component: EditRoleComponent
+  },
+
+  
 ]
 
 
