@@ -43,7 +43,7 @@ export class LoginComponent {
         this.sweetS.success('Bienvenido');
         this.toolS.setToken(data.token.original.access_token);
         // this.toolS.getToken();
-        this.toolS.getIdUser(data.user.id);
+        this.toolS.setIdUser(data.user.id);
         this.toolS.setRol(data.user.rol);
         console.log(data.user.rol, 'rol');
         this.router.navigateByUrl('/home/products');

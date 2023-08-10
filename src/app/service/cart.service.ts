@@ -40,11 +40,19 @@ export class CartService {
     return this.http.post<Request>(`${this.api}addCart`, cart, {headers});
   }
 
-  updateCart(cart: any):Observable<Request>{
+  updateCart(id:number,cart: any):Observable<Request>{
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.put<Request>(`${this.api}updateCart`, cart, {headers});
+    return this.http.put<Request>(`${this.api}updateCart/${id}`, cart, {headers});
+  }
+
+  deleteCart(id: number){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete(`${this.api}deleteCart/${id}`, {headers});
   }
 }

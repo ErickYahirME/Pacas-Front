@@ -6,6 +6,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { ComprasComponent } from './compras/compras.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ProcederCompraComponent } from './proceder-compra/proceder-compra.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   component: ComprasComponent
   },
   {
+    path: 'proceder-compra',
+    component: ProcederCompraComponent
+  },
+  {
     path: '**',
     redirectTo: 'home/products',
   }
@@ -31,7 +36,8 @@ const routes: Routes = [
   declarations: [
     CardCarritoComponent,
     CarritoComponent,
-    ComprasComponent
+    ComprasComponent,
+    ProcederCompraComponent
   ],
   imports: [
     CommonModule,

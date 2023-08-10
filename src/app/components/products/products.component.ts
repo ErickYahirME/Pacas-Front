@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { productGET } from 'src/app/product';
+import { CartService } from 'src/app/service/cart.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class ProductsComponent {
 
   constructor(
     private productS:ProductService,
+    private carritoS:CartService
   ) {}
 
   ngOnInit() {
@@ -27,5 +29,6 @@ export class ProductsComponent {
       console.log(data);
     });
   }
+
 
 }
