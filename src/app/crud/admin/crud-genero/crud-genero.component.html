@@ -1,21 +1,16 @@
-<div >
-<div class="login-background" >
-    <form class="custom-form" >
-      <table class="table data-table"   >
+<div class="login-background">
+  <div class="custom-form">
+    <div class="custom-table-container"> <!-- Aplicar la clase de estilo -->
+      <table class="table data-table">
         <thead>
           <tr>
-
             <th scope="col">Núm</th>
             <th scope="col">Género</th>
             <th scope="col">Acciones</th>
-
-
-            
           </tr>
         </thead>
-        <tbody >
+        <tbody>
           <tr *ngFor="let sex of genero">
-            
             <td>{{ sex.id }}</td>
             <td>{{ sex.sex }}</td>
             <td>
@@ -27,32 +22,9 @@
                 <i class="fas fa-trash"></i>
               </button>
             </td>
-   
           </tr>
         </tbody>
       </table>
-    </form>
+    </div>
   </div>
 </div>
-
-<!-- 
-<div class="row row-cols-7">
-    <div class="col">
-    Id
-    </div>
-    <div class="col">
-      Sexo
-    </div>
-  </div>
-  
-   <div class="container" *ngFor="let sex of genero">
-      <div class="row row-cols-7">
-        <div class="col">
-          {{ sex.id }}
-        </div>
-        <div class="col">
-          {{ sex.sex }}
-        </div>
-   
-      </div>
-    </div> -->

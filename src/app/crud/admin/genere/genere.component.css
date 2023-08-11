@@ -1,51 +1,46 @@
-.title{
-    padding-top: 2%;
-    padding-bottom: 2%;
+/* Aplicar los estilos de letra proporcionados */
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px; /* Ajustar el margen inferior */
+  padding-bottom: 5px; /* Ajustar el espacio debajo */
+  color: #333;
+  text-transform: uppercase;
 }
 
-.generoForm{
-    padding-bottom: 2%;
-}
-
+/* Aplicar los estilos de contenedor principal */
 .host {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .card {
-    max-width: 500px;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
-  
-  /* Estilos para los títulos */
-  h2 {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .form-label {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  /* Estilos para el campo de entrada y el botón */
-  .form-control {
-    font-size: 18px;
-    padding: 12px;
-  }
-  
-  .btn-primary {
-    font-size: 20px;
-    padding: 12px 20px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
 
-  .container{
-    padding-top: 5%;
-  }
+.card {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Estilos para el campo de entrada y el botón */
+.form-control {
+  font-size: 18px;
+  padding: 12px;
+}
+
+.btn-primary {
+  font-size: 20px;
+  padding: 12px 20px;
+  background-color: #007bff; /* Cambiar color de fondo del botón */
+  border: none;
+  border-radius: 5px;
+  color: #fff; /* Cambiar color del texto del botón */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Cambiar color de fondo del botón al pasar el mouse */
+}
