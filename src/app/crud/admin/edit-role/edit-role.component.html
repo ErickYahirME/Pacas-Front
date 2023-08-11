@@ -1,1 +1,16 @@
-<p>edit-role works!</p>
+<div class="container">
+    <h3 class="title">Editar rol</h3>
+    
+    <form
+    [formGroup]="RoleForm">
+
+    <div class="form-outline mb-4" class="RoleForm">
+        <label class="form-label" for="type_role">Nombra un nuevo rol</label>
+        <input type="type_role" id="type_role" formControlName="type_role" class="form-control form-control-lg" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="updaterole()">Guardar</button>
+</form>
+
+</div>
