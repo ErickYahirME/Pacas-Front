@@ -1,1 +1,18 @@
-<p>show-role works!</p>
+
+
+
+<div *ngFor="let ro of roles; let i = index ">
+
+    <div class="container">
+
+      <div class="card">
+        <div class="card-info">
+          <p class="text-title">{{ro.type_role}}</p>
+        </div>
+        <button type="button" class="btn btn-warning" (click)="goToEditRole(ro.id)">Editar</button>
+        <button type="button" class="btn btn-danger" (click)="deleteRole(ro.id)">Eliminar</button>
+        </div>
+
+    </div>
+
+  </div>

@@ -118,6 +118,8 @@ const routes: Routes = [
     AdminCrudComponent,
     ShowSizeComponent,
     EditSizeComponent,
+    ShowRoleComponent,
+    EditRoleComponent,
 
 
     CrudGeneroComponent,
