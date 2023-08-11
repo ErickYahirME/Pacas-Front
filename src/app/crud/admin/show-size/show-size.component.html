@@ -1,18 +1,29 @@
-
-
-
-<div *ngFor="let si of sizes; let i = index ">
-
-    <div class="container">
-
-      <div class="card">
-        <div class="card-info">
-          <p class="text-title">{{si.size}}</p>
-        </div>
-        <button type="button" class="btn btn-warning" (click)="goToEditSize(si.id)">Editar</button>
-        <button type="button" class="btn btn-danger" (click)="deleteSize(si.id)">Eliminar</button>
-        </div>
-
-    </div>
-
+<div class="custom-table-container">
+  <div class="mt-3">
+    <h2 class="text-center">Tallas</h2>
   </div>
+  <hr>
+  <table class="table custom-table">
+    <thead>
+      <tr>
+        <th class="text-center">Tamaño</th>
+        <th class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let si of sizes; let i = index">
+        <td class="text-center">{{ si.size }}</td>
+        <td class="text-center">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning btn-sm btn-rounded mx-1" (click)="goToEditSize(si.id)">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm btn-rounded mx-1" (click)="deleteSize(si.id)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
