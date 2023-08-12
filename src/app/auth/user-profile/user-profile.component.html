@@ -1,29 +1,42 @@
 
-  <h1 class="titulo">MI CUENTA</h1>
+  
 
-
-  <div *ngFor="let us of perfilUser; let i = index ">
+  <div >
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-7">
                 <div class="card p-3 py-4">
                     <div class="text-center">
-                        <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle">
+                        <img src="https://www.pitzer.edu/staffcouncil/wp-content/uploads/sites/47/2021/11/nonprofile.png" width="100" class="rounded-circle">
                     </div>
                     <div class="text-center mt-3">
-                        <span class="bg-secondary p-1 px-4 rounded text-white">{{us.phone}}</span>
-                        <h5 class="mt-2 mb-0">df</h5>
-                        <span>UI/UX Designer</span>
+                        <!-- <span class="bg-secondary p-1 px-4 rounded text-white"></span> -->
+                        <h5 class="mt-2 mb-0">{{perfilu?.name}}</h5>
+                        <span>{{perfilu?.lastname}}</span>
                         <div class="px-4 mt-1">
-                            <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <p class="fonts">Telefono: {{perfilu?.phone}}</p>
+                            <p class="fonts">Correo: {{perfilu?.email}}</p>
                         </div>
-                        <ul class="social-list">
-                            <li><i class="fa fa-facebook"></i></li>
-                            <li><i class="fa fa-dribbble"></i></li>
-                            <li><i class="fa fa-instagram"></i></li>
-                            <li><i class="fa fa-linkedin"></i></li>
-                            <li><i class="fa fa-google"></i></li>
-                        </ul>
+                       
+                        <!-- Facebook -->
+                        <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Twitter -->
+                        <i class="fab fa-twitter fa-2x" style="color: #55acee;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                        <!-- Instagram -->
+                        <i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Linkedin -->
+                        <i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Github -->
+                        <i class="fab fa-github fa-2x" style="color: #333333;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Whatsapp -->
+                        <i class="fab fa-whatsapp fa-2x" style="color: #25d366;"></i>
+
+                        <p></p>
                         <div class="buttons">
                             <button class="btn btn-outline-primary px-4">Message</button>
                             <button class="btn btn-primary px-4 ms-3">Contact</button>

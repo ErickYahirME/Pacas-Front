@@ -10,13 +10,15 @@ import { userGeneral } from 'src/app/interface';
 export class UserProfileComponent {
 
   perfilUser:userGeneral[] = [];
+  perfilu:any;
 
   constructor(
     private authS: AuthService,
   ){
     this.authS.profileUser().subscribe((data:userGeneral[]) => {
-      this.perfilUser = data;
-      console.log(this.perfilUser, 'datos del usuario');
+      // this.perfilUser = data;
+      this.perfilu = data;
+      console.log(this.perfilu, 'datos del usuario');
     });
   }
 
