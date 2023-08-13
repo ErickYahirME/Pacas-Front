@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { productGET } from 'src/app/product';
 import { ToolsService } from '../../service/tools.service';
 import { CartService } from 'src/app/service/cart.service';
+import { SweetAlertService } from '../../service/sweet-alert.service';
 
 @Component({
   selector: 'app-card',
@@ -14,8 +15,13 @@ export class CardComponent {
 
   constructor(
     private toolS: ToolsService,
-    private cartS: CartService
+    private cartS: CartService,
+    private sweetS: SweetAlertService
   ) {}
+
+  ngOnInit(){
+    this.loadProducts();
+  }
 
   @Input() card: productGET[] = [];
 
@@ -26,8 +32,7 @@ export class CardComponent {
   }
 
   iconCart: string = 'bi bi-cart';
-  isCartEmpty: boolean = true;
-  isCartChecked: boolean = false;
+
   toggleCarrito(product: any) {
     // console.log('Agregar al carrito', product);
 
@@ -36,27 +41,26 @@ export class CardComponent {
       // console.log('carrito', inCart);
       const existingCartItem = inCart.find((item: any) => item.product_id === product.id);
       console.log('existe', existingCartItem);
+
+
       if (existingCartItem === undefined) {
         this.addCarrito(product);
+        product.icon = 'bi bi-cart-check-fill';
+
       } else {
         this.removeCarrito(existingCartItem);
+        product.icon = 'bi bi-cart';
       }
     });
   }
 
-  // iconStatus(){
-  //   if(inCart.find((cart:any)=> cart.product_id === card.id)){
-  //     this.iconCart = 'bi bi-cart-check-fill';
-  //   }
-  //   else {
-  //     this.iconCart = 'bi bi-cart';
-  //   }
-  // }
 
   removeCarrito(cartItem: any) {
     this.cartS.deleteCart(cartItem.id).subscribe((response: any) => {
       console.log('Producto eliminado del carrito', response);
       this.card = this.card.filter(item => item.id !== cartItem.id);
+      this.sweetS.fireToastSuccess('Producto eliminado del carrito');
+
     }, (err: any) => {
       console.error('Error al eliminar producto del carrito', err);
     });
@@ -71,6 +75,7 @@ export class CardComponent {
 
     this.cartS.addCart(send).subscribe((response: any) => {
       console.log('Producto agregado al carrito', response);
+      this.sweetS.fireToastSuccess('Producto agregado al carrito');
       // Actualizar el carrito localmente (agregar el nuevo producto)
       // this.card.push({ ...product });
     }, (err: any) => {
@@ -78,5 +83,20 @@ export class CardComponent {
     });
   }
 
+
+  async loadProducts() {
+    this.cartS.getCartByIdUser(this.idUserNow).subscribe((response: any) => {
+      const inCart = response;
+      this.card = this.card.map((product: productGET) => {
+        const existingCartItem = inCart.find((item: any) => item.product_id === product.id);
+        if (existingCartItem === undefined) {
+          product.icon = 'bi bi-cart';
+        } else {
+          product.icon = 'bi bi-cart-check-fill';
+        }
+        return product;
+      });
+    });
+  }
 
 }

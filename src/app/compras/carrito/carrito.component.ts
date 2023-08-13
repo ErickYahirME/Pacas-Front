@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 import { ToolsService } from '../../service/tools.service';
 import { Router } from '@angular/router';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class CarritoComponent {
   constructor(
     private cartS: CartService,
     private toolS: ToolsService,
-    private router: Router
+    private router: Router,
+    private sweetS: SweetAlertService
   ){}
   cart: any = [];
   idUserNow:any = this.toolS.getIdUser();
@@ -27,7 +29,7 @@ export class CarritoComponent {
 
   async getCart(){
     await this.cartS.getCartByIdUser(this.idUser).subscribe( response => {
-      // console.log('response',response);
+      console.log('response',response);
       this.cart = response;
     }, err => console.log(err));
   }
@@ -46,7 +48,8 @@ export class CarritoComponent {
   }
   increment(product: any) {
     let idP:any = product.id;
-    if (product.quantity < 999) {
+    let stock:any = product.stock;
+    if (product.quantity < stock) {
       let prod = {
         // user_id: this.idUserNow,
         // product_id: product.id,
@@ -84,6 +87,7 @@ export class CarritoComponent {
 
   deleteCart(c:any){
     this.cartS.deleteCart(c.id).subscribe( response => {
+      this.sweetS.fireToastSuccess('Producto eliminado del carrito');
       // console.log('response',response);
       this.getCart();
     }, err => console.log(err));

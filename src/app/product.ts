@@ -14,6 +14,7 @@ size_id: number;
 stock: number;
 type_clothes_id: number;
 updated_at: string;
+icon?: string; // Agrega la propiedad icon
 
 
 }

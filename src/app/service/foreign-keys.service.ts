@@ -46,4 +46,13 @@ export class ForeignKeysService {
     });
     return this.http.get(`${this.api}tipoRopa/${id}`, {headers});
   }
+
+
+  getPackages(){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.api}getShippingMethod`, {headers});
+  }
 }

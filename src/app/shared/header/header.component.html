@@ -29,6 +29,7 @@
         />
       </a>
       <!-- Left links -->
+      <a class="nav-link" routerLink="/home/servicio-cliente">Servicio al Cliente</a>
 
       <ul class="navbar-nav" *ngIf="rol === 'vendedor'">
         <!-- Dropdown -->
@@ -56,11 +57,26 @@
       </ul>
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="rol === 'admin'">
-        <!-- <li class="nav-item">
-          <a class="nav-link" >Administrador Vendedor</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin-crud/addClothe">Admin General CRUD</a>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Administrar Roles
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" routerLink="/admin-crud/addRole">Agregar rol</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin-crud/showRole">Mostrar roles</a>
+            </li>
+          </ul>
         </li>
 
         <li class="nav-item dropdown">
@@ -72,44 +88,71 @@
             data-mdb-toggle="dropdown"
             aria-expanded="false"
           >
-            Admin General
+            Administrar Generos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
               <a class="dropdown-item" routerLink="/admin-crud/addGenere">Agregar Género</a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/admin-crud/crudGenere">Crud Género</a>
+              <a class="dropdown-item" routerLink="/admin-crud/crudGenere">Lista de Género</a>
             </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Administrar Tipo de ropa
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
               <a class="dropdown-item" routerLink="/admin-crud/addClothe">Agregar tipo de ropa</a>
             </li>
             <li>
               <a class="dropdown-item" routerLink="/admin-crud/crudClothe">Crud tipo de ropa</a>
             </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Administrar Talla de Ropa
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
               <a class="dropdown-item" routerLink="/admin-crud/addSize">Agregar talla</a>
             </li>
             <li>
               <a class="dropdown-item" routerLink="/admin-crud/showSize">Mostrar tallas</a>
             </li>
-            <li>
-              <a class="dropdown-item" routerLink="/admin-crud/addRole">Agregar rol</a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/admin-crud/showRole">Mostrar roles</a>
-            </li>
           </ul>
         </li>
-
-        
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
-        </li> -->
       </ul>
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
+
+
+    <!-- <a
+    id="navbarDropdownMenuLink"
+    role="button"
+    aria-expanded="false"
+    routerLink="/home/servicio-cliente">Servicio al cliente</a> -->
+
 
     <!-- Right elements -->
     <div class="d-flex align-items-center">
@@ -156,7 +199,7 @@
     <!-- Right elements -->
   </div>
 
- 
+
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
