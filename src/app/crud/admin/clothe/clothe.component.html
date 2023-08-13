@@ -1,14 +1,14 @@
 <div class="container host">
-  
-  <div class="card">
-      <h2 class="text-center mb-4">Agregar nuevo tipo de prenda</h2>
+    <div class="card">
+      <h2 class="title text-center mb-4">Agregar nuevo tipo de prenda</h2>
       <form [formGroup]="ClotForm">
-          <div class="mb-3">
-              <input type="text" class="form-control" id="tipoDPrenda" placeholder="Ingresa el tipo de prenda" formControlName="name_clothe">
-          </div>
-          <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Guardar</button>
-          </div>
+        <div class="form-outline mb-4">
+          <label class="form-label" for="tipoDPrenda">Ingresa el tipo de prenda</label>
+          <textarea class="form-control form-control-lg" id="tipoDPrenda" placeholder="Ingresa el tipo de prenda" formControlName="name_clothe" rows="1" cols="120"></textarea>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Guardar</button>
+        </div>
       </form>
-  </div>
+    </div>
 </div>

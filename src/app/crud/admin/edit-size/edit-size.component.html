@@ -1,16 +1,16 @@
 <div class="container">
-    <h3 class="title">Editar talla</h3>
-
-<form
-[formGroup]="SizeForm">
-
-    <div class="form-outline mb-4" class="SizeForm">
-        <label class="form-label" for="size">Nombra un nuevo tamaño de ropa</label>
-        <input type="size" id="size" formControlName="size" class="form-control form-control-lg" />
+    <div class="card">
+      <h3 class="title">Editar talla</h3>
+      
+      <form [formGroup]="SizeForm">
+  
+        <div class="form-outline mb-4">
+          <label class="form-label" for="size">Nombra un nuevo tamaño de ropa</label>
+          <input type="size" id="size"  formControlName="size" class="form-control form-control-lg" />
+        </div>
+  
+        <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="updatesize()">Guardar</button>
+      </form>
     </div>
-
-
-    <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="updatesize()">Guardar</button>
-</form>
-
-</div>
+  </div>
+  
