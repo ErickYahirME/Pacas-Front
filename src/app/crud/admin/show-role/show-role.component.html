@@ -1,18 +1,31 @@
-
-
-
-<div *ngFor="let ro of roles; let i = index ">
-
-    <div class="container">
-
-      <div class="card">
-        <div class="card-info">
-          <p class="text-title">{{ro.type_role}}</p>
-        </div>
-        <button type="button" class="btn btn-warning" (click)="goToEditRole(ro.id)">Editar</button>
-        <button type="button" class="btn btn-danger" (click)="deleteRole(ro.id)">Eliminar</button>
-        </div>
-
-    </div>
-
+<div class="custom-table-container">
+  <div class="mt-3">
+    <h2 class="text-center">Roles</h2>
   </div>
+  <hr>
+  <table class="table data-table">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Núm</th>
+        <th scope="col" class="text-center">Tipo de Rol</th>
+        <th scope="col" class="text-left pr-5">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ro of roles; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ ro.type_role }}</td>
+        <td class="text-center">
+          <div class="button-container">
+            <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="goToEditRole(ro.id)">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="deleteRole(ro.id)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

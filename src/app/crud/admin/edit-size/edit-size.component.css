@@ -1,0 +1,49 @@
+/* Estilos de letra */
+h3.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    color: #333;
+    text-transform: uppercase;
+  }
+  
+  /* Estilos de contenedor principal */
+  .host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .card {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 100px; /* Espacio superior agregado para bajar la card */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  /* Estilos para el campo de entrada y el botón */
+  .form-control {
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-primary {
+    font-size: 20px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,23 @@
+/* Estilos para centrar y aplicar margen a la tabla */
+.custom-table-container {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  /* Estilos para centrar la información en las celdas */
+  .data-table tbody td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  /* Estilos para los botones con bordes redondeados */
+  .btn-rounded {
+    border-radius: 50%;
+    padding: 8px 12px;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
