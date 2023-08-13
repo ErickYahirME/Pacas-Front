@@ -7,6 +7,7 @@ import { ComprasComponent } from './compras/compras.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ProcederCompraComponent } from './proceder-compra/proceder-compra.component';
+import { ComponentsModule } from '../components/components.module';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     SharedModule,
+    ComponentsModule
   ],
   exports: [
   CardCarritoComponent,

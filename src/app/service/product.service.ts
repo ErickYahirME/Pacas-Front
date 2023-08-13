@@ -46,7 +46,7 @@ export class ProductService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.post<Request>(`${this.api}updateProduct/${id}`, product, {headers});
+    return this.http.put<Request>(`${this.api}updateProduct/${id}`, product, {headers});
   }
 
   deleteProduct(id:number):Observable<Request>{
@@ -64,5 +64,6 @@ export class ProductService {
     });
     return this.http.get<productGET[]>(`${this.api}product/author/${authorId}`, {headers});
   }
+
 
 }

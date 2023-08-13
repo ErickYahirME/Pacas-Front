@@ -6,6 +6,9 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { UserProfileComponent } from '../auth/user-profile/user-profile.component';
+import { ServiceClientComponent } from './service-client/service-client.component';
+import { TarjetaModalComponent } from './tarjeta-modal/tarjeta-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes = [
 
@@ -17,6 +20,10 @@ const routes = [
     path: 'profile-user',
   component: UserProfileComponent
   },
+  {
+    path: 'servicio-cliente',
+    component: ServiceClientComponent
+  }
 
 
 ]
@@ -27,19 +34,25 @@ const routes = [
     CardComponent,
     ProductsComponent,
     UserProfileComponent,
+    ServiceClientComponent,
+    TarjetaModalComponent,
 
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomeComponent,
     CardComponent,
     ProductsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ServiceClientComponent,
+    TarjetaModalComponent,
   ]
 })
 export class ComponentsModule { }

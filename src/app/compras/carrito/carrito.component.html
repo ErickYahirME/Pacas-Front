@@ -33,7 +33,7 @@
             <td>
               <div class="d-flex align-items-center">
                 <img
-                    [src]=c.image_url
+                    [src]=c.image
                     alt=""
                     style="width: 45px; height: 45px"
                     class="rounded-box"
@@ -77,9 +77,11 @@
       </h4>
 
       <br>
-      <div *ngIf="cart.length > 0" class="d-grid gap-2">
+      <div align="right" *ngIf="cart.length > 0" class=" gap-2">
         <button class="btn btn-warning btn-rounded" type="button" (click)="procedPay()">Proceder al pago</button>
     </div>
+
+
     <br><br><br><br>
 
         <app-footer></app-footer>

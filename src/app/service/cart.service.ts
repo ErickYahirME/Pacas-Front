@@ -55,4 +55,12 @@ export class CartService {
     });
     return this.http.delete(`${this.api}deleteCart/${id}`, {headers});
   }
+  clearCart(id: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.delete(`${this.api}clearCart/${id}`, { headers });
+  }
 }

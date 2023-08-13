@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.animation-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3498db;
+  opacity: 0.7;
+}
+
+.circle1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: circle1 2s infinite alternate;
+}
+
+.circle2 {
+  bottom: 0;
+  left: 25%;
+  animation: circle2 2s infinite alternate;
+}
+
+.circle3 {
+  bottom: 0;
+  right: 25%;
+  animation: circle3 2s infinite alternate;
+}
+
+@keyframes circle1 {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-40px);
+  }
+}
+
+@keyframes circle2 {
+  0% {
+    transform: translateX(-25%) translateY(0);
+  }
+  100% {
+    transform: translateX(-25%) translateY(-40px);
+  }
+}
+
+@keyframes circle3 {
+  0% {
+    transform: translateX(25%) translateY(0);
+  }
+  100% {
+    transform: translateX(25%) translateY(-40px);
+  }
+}
+
+.content {
+  text-align: center;
+  margin-top: 30px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.contact-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}

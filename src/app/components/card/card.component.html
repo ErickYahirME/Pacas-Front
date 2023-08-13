@@ -59,11 +59,9 @@
       <div class="card-footer d-flex justify-content-between">
         <span class="text-title h4">${{ p.price }}</span>
 
-        <button (click)="toggleCarrito(p)" type="button" class="btn  btn-floating">
-          <i *ngIf="isCartEmpty" class="bi bi-cart"></i>
-          <i *ngIf="isCartChecked" class="bi bi-cart-check-fill"></i>
+        <button (click)="toggleCarrito(p)" type="button" class="btn btn-floating">
+          <i [class]="p.icon"></i>
         </button>
-
       </div>
     </div>
   </div>

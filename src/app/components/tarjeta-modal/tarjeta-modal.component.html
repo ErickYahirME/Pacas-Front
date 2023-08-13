@@ -1,0 +1,39 @@
+<div class="modal fade" id="agregarTarjetaModal" tabindex="-1" aria-labelledby="agregarTarjetaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarTarjetaModalLabel">Agregar Tarjeta de Crédito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="tarjetaForm">
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="numeroTarjeta" class="form-label">Número de Tarjeta</label>
+              <input type="text" class="form-control" id="numTarjeta" placeholder="Número de Tarjeta" formControlName="numeroTarjeta">
+            </div>
+            <div class="col-md-6">
+              <label for="nombreTitular" class="form-label">Nombre del Titular</label>
+              <input type="text" class="form-control" id="nombreTitular" placeholder="Nombre del Titular" formControlName="nombreTitular">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="fechaVencimiento" class="form-label">Fecha de Vencimiento</label>
+              <input type="text" class="form-control" id="fechaVencimiento" placeholder="MM/YY" formControlName="fechaVencimiento" (input)="formatoFechaVencimiento($event)">
+            </div>
+            <div class="col-md-6">
+              <label for="cvc" class="form-label">CVC</label>
+              <input type="text" class="form-control" id="cvv" placeholder="CVC" formControlName="cvc">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregarTarjeta()">Agregar Tarjeta</button>
+      </div>
+    </div>
+  </div>
+</div>

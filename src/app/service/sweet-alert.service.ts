@@ -39,5 +39,15 @@ export class SweetAlertService {
     })
   }
 
+  fireToastSuccess(msn:string){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: msn,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
 }
 
