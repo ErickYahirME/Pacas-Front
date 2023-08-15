@@ -15,12 +15,13 @@ import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 export class CrudGeneroComponent {
 
+  
   genero: Sex [] = [];
 
   constructor(
     private fb : FormBuilder,
     private GenereAdminService: GenereAdminService,
-    private route: Router,
+    private router: Router,
     private sweetS: SweetAlertService
   ){  }
 
@@ -44,13 +45,13 @@ export class CrudGeneroComponent {
     })
   }
 
-  editGen(data: Sex){
-    this.sweetS.confirm('Estas seguro de editar este género?','¡Editalo!').then ( (result) => {
-      if (result.isConfirmed){
-        this.route.navigate(['/admin-crud/addProduct',data.id]);
-      }
-    });
+
+  editGen(id: number){ 
+    this.router.navigateByUrl(`/admin-crud/editGenere/${id}`);
+    console.log('Here I go to the edit-genero!');
   }
+
+
 
 }
 

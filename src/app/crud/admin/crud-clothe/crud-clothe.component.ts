@@ -18,7 +18,7 @@ export class CrudClotheComponent {
   constructor(
     private fb : FormBuilder,
     private ClotheAdminService : ClotheAdminService,
-    private route: Router,
+    private router: Router,
     private sweetS: SweetAlertService
   ){}
 
@@ -40,5 +40,11 @@ export class CrudClotheComponent {
       }
     });
   }
+
+  editCloth(id: number){ 
+    this.router.navigateByUrl(`/admin-crud/editClothe/${id}`);
+    console.log('Here I go to the edit-genero!');
+  }
+
 
 }

@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CrudClotheComponent } from './admin/crud-clothe/crud-clothe.component';
 import { ShowRoleComponent } from './admin/show-role/show-role.component';
 import { EditRoleComponent } from './admin/edit-role/edit-role.component';
+import { EditGenereComponent } from './admin/edit-genere/edit-genere.component';
+import { EditClotheComponent } from './admin/edit-clothe/edit-clothe.component';
 
 
 const routes: Routes = [
@@ -39,12 +41,8 @@ const routes: Routes = [
 
   // Rutas de tipo de ropa 
   {
-  path: 'addClothe/id',
-  component: ClotheComponent
-  },
-  {
-  path: 'editClothe/id',
-  component: ClotheComponent
+  path: 'editClothe/:id',
+  component: EditClotheComponent
   },
   {
     path: 'addClothe',
@@ -56,13 +54,10 @@ const routes: Routes = [
   },
 
   // Rutas de Genero
+  
   {
-    path: 'addGenere/id', 
-    component: GenereComponent
-  },
-  {
-    path: 'editGenere/id', 
-    component: GenereComponent
+    path: 'editGenere/:d', 
+    component: EditGenereComponent
   },
   {
     path: 'addGenere', 
