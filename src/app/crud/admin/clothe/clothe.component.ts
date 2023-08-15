@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { typeCloth } from 'src/app/interface';
 import { ClotheAdminService } from 'src/app/service/admin-Service/clothe-admin.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 @Component({
   selector: 'app-clothe',
@@ -15,8 +16,12 @@ export class ClotheComponent {
   constructor(
     private fb: FormBuilder,
     private ClotheAdminService: ClotheAdminService,
-    private Router: Router,
+    private router: Router,
+    private sweetS: SweetAlertService
   ){  }
+
+  id:any;
+  clothToEdit:any =[];
 
   ClotForm : FormGroup = this.fb.group({
     name_clothe: ['', [Validators.required, Validators.minLength(1)]],
@@ -27,7 +32,8 @@ export class ClotheComponent {
     this.ClotheAdminService.addClothe(this.ClotForm.value).subscribe(data => {
       console.log(data, 'respuesta');
     });
-
+    this.sweetS.success('Talla guardada');
+    this.router.navigateByUrl('/admin-crud/crudGenere');
   }
 
 }

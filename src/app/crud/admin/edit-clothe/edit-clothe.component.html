@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card">
+        <h2 class="text-center mb-4">Agregar nuevo género</h2>
+        
+        <form [formGroup]="ClotForm">
+            
+            <div class="mb-3" class="ClotForm">
+                <label class="form-label" for="name_clothe">Nombra un tipo de ropa</label>
+                <input type="text" class="form-control" id="tituloRopa" placeholder="Ingresa el tipo de ropa" formControlName="ropa">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg" (click)="updateCloth()">Guardar</button>
+            </div>
+        </form>
+    </div>
+  </div>
+  

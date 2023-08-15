@@ -4,7 +4,6 @@ import { typeCloth } from 'src/app/interface';
 import { ClotheAdminService } from '../../../service/admin-Service/clothe-admin.service';
 import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 import { Router } from '@angular/router';
-import { GenereAdminService } from '../../../service/admin-Service/genere-admin.service';
 
 @Component({
   selector: 'app-crud-clothe',
@@ -39,6 +38,11 @@ export class CrudClotheComponent {
         })
       }
     });
+  }
+
+  editCloth(id: number){ 
+    this.route.navigateByUrl(`/admin-crud/editClothe/${id}`);
+    console.log('Here I go to the edit-genero!');
   }
 
 }
