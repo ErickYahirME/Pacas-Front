@@ -1,6 +1,6 @@
 <div class="login-background-container">
   <div class="mt-3">
-    <h2 class="text-center">Genero</h2>
+    <h2 class="text-center">Tipos de ropa</h2>
   </div>
   <hr>
   <form class="custom-form">
@@ -19,7 +19,7 @@
             <td>{{ typeCloth.name_clothe }}</td>
             <td>
               <div class="button-container">
-                <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="deletTypeCloth(typeCloth)">
+                <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editCloth(typeCloth.id)">
                   <i class="fas fa-pen"></i>
                 </button>
                 <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="deletTypeCloth(typeCloth)">
