@@ -1,16 +1,14 @@
-<div class="container">
-    <h3 class="title">Editar rol</h3>
-    
-    <form
-    [formGroup]="RoleForm">
-
-    <div class="form-outline mb-4" class="RoleForm">
-        <label class="form-label" for="type_role">Nombra un nuevo rol</label>
-        <input type="type_role" id="type_role" formControlName="type_role" class="form-control form-control-lg" />
+<div class="host">
+    <div class="card" style="width: 60%;">
+      <h3 class="title">Editar rol</h3>
+      <form [formGroup]="RoleForm">
+        <div class="form-outline mb-4">
+          <label class="form-label" for="type_role">Nombra un nuevo rol</label>
+          <input type="type_role" id="type_role" formControlName="type_role" class="form-control" style="width: 100%;" />
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary" (click)="updaterole()">Guardar</button>
+        </div>
+      </form>
     </div>
-
-
-    <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="updaterole()">Guardar</button>
-</form>
-
 </div>
